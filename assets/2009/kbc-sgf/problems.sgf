@@ -1,0 +1,11 @@
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[19]KM[0.00]
+
+(;AW[ck][pn][bo][co][bp][gp][pp][dq][gq][hq][iq][jq][dr][fr][es]AB[fo][go][lo][cp][dp][ep][hp][ip][jp][eq][kq][nq][er][kr]C[page 13])
+(;AW[pn][co][go][ho][dp][fp][ip][jp][pp][iq][nq][dr][jr][kr]AB[ck][ql][bn][cn][en][hp][mp][hq][jq][kq][fr][hr][ir]C[page 14])
+(;AW[lk][ll][nl][om][ln][on][ko][lo][no][ip][jp][mp][np][cq][fq][hq][mq][oq][dr][hr][or][pr][qr][rr]AB[kj][lj][nj][pj][jk][kl][pl][lm][hn][mn][nn][pn][qn][eo][io][mo][oo][cp][dp][gp][hp][lp][op][pp][iq][nq][pq][rq]C[page 26])
+(;AW[dm][em][fm][gm][dn][gn][in][qn][eo][ho][dp][ep][fp][hp][kp][fq][iq][jq][fr][jr]AB[km][en][fn][co][do][fo][go][jo][ko][cp][gp][ip][jp][pp][cq][gq][hq][nq][gr][ir][hs]C[page 34])
+(;AW[ek][fk][gk][bl][cl][dl][hl][il][jm][en][gn][in][ao][bo][co][eo][go][jo][ko][ap][ep][gp][lp][pp][bq][cq][eq][fq][gq][mq][dr][hr][ir][mr]AB[el][fl][gl][bm][dm][em][gm][hm][bn][cn][dn][fn][hn][qn][do][fo][ho][io][bp][cp][dp][fp][hp][jp][dq][hq][iq][jq][kr]C[page 35])
+(;AW[gm][hm][im][fn][in][bo][co][eo][fo][io][bp][dp][ep][ip][pp][bq][dq][jq][kq][ar][er][es]AB[jk][cl][fl][gl][il][fm][jm][cn][dn][gn][jn][do][go][jo][cp][fp][gp][jp][cq][br][cr][dr][cs]C[page 40])
+(;AW[dm][fm][gm][hm][im][en][jn][do][ko][dp][dq][fq][gq][hq][kq][nq][dr][ir][kr][es][is][js]AB[cm][cn][dn][gn][hn][qn][co][eo][fo][cp][gp][hp][ip][pp][cq][eq][iq][jq][er][hr][jr]C[page 43])
+(;AW[ck][cl][cm][dn][co][do][dp][ep][bq][cq][cr]AB[dl][dm][bn][cn][bo][bp][cp][dq][eq][fq]))
