@@ -1,0 +1,45 @@
+---
+layout: post
+status: publish
+published: true
+title: Common sense and frustration
+author:
+  display_name: tasuki
+  login: admin
+  email: vit.brunner@gmail.com
+  url: http://blog.tasuki.org/
+author_login: admin
+author_email: vit.brunner@gmail.com
+author_url: http://blog.tasuki.org/
+wordpress_id: 263
+wordpress_url: http://blog.tasuki.org/common-sense-and-frustration/
+date: '2008-04-23 18:06:48 +0000'
+date_gmt: '2008-04-23 17:06:48 +0000'
+categories:
+- programming
+- rant
+tags: []
+comments:
+- id: 59581
+  author: Ondra
+  author_email: ''
+  author_url: ''
+  date: '2008-04-24 08:24:03 +0000'
+  date_gmt: '2008-04-24 07:24:03 +0000'
+  content: Ja si pod tim pojmem predstavuji neco trochu jineho.
+---
+<p>Do you know what common sense is?</p>
+<p>Common sense is:</p>
+<ul>
+<li>NOT setting fixed height for elements whose actual height can change anytime, and especially not setting this particular height to three elements next to each other, to keep them with the same height (common sense solution is to wrap it all in another element)</li>
+<li>NOT calling your database tables j_aidx_1, j_aidx_2 ... j_aidx_n and calling the columns m_1, m_2, m_3, etc; which leads to people writing queries like SELECT a.m_85, a.m_167, b.m_17, b.m_56 FROM j_aidx_5 AS a LEFT JOIN j_aidx_8 AS b ON a.m_103 = b.m_42 WHERE b.m_58 = '1' AND a.12 = '0'</li>
+<li>invoking the live server settings as default instead of using testing environment settings as default, because when something goes wrong in the decision process, you don't want the live server to get fucked up</li>
+<li>NOT having the very same function copied to several different "modules" of the application so as to make it extremely inconvenient to change</li>
+<li>NOT calling your backups "new", "!new", "_new", "____new", "!!!!!new" etc, especially when each person uses a different flavour of this method</li>
+<li>using a version control system, and if you are unable to do so, calling your backups by date (preferrably in YYYY-MM-DD format, since it sorts itself naturally)</li>
+<li>using either tabs or any amount of spaces for indentation, but keeping it consistent (or at least, for fuck's sake, keeping it consistent within one file)</li>
+<li>NOT internally calling files for inclusion 1.html, 2.html, 3.html etc., especially when you already went through the hassle of creating nice looking URL's</li>
+<li>NOT totally breaking your URL's and titles by adding a lot of random keywords just to game search engines, when that makes your site either unusable or extremely confusing for humans</li>
+<li>using one language (human language, like English or Czech) in your application, or at least avoiding mixing up several languages inside one particular variable or function name (findAllNovinky is just lame function name)</li>
+</ul>
+<p>... do you know what <strong><em>frustration</em></strong> is?</p>

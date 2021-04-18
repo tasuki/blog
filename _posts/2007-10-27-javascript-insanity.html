@@ -1,0 +1,64 @@
+---
+layout: post
+status: publish
+published: true
+title: JavaScript insanity
+author:
+  display_name: tasuki
+  login: admin
+  email: vit.brunner@gmail.com
+  url: http://blog.tasuki.org/
+author_login: admin
+author_email: vit.brunner@gmail.com
+author_url: http://blog.tasuki.org/
+wordpress_id: 236
+wordpress_url: http://blog.tasuki.org/2007/10/27/javascript-insanity/
+date: '2007-10-27 11:31:31 +0000'
+date_gmt: '2007-10-27 10:31:31 +0000'
+categories:
+- programming
+tags: []
+comments:
+- id: 59195
+  author: Ondra
+  author_email: ''
+  author_url: ''
+  date: '2007-10-27 22:14:31 +0000'
+  date_gmt: '2007-10-27 21:14:31 +0000'
+  content: Chtel bych te slyset, co bys rikal na Perl ;).
+- id: 59198
+  author: tasuki
+  author_email: vit.brunner@gmail.com
+  author_url: http://tasuki.tasuki.org/
+  date: '2007-10-29 15:17:00 +0000'
+  date_gmt: '2007-10-29 14:17:00 +0000'
+  content: "Perl je super. :)\r\nTam nic takoveho neni, ne? Muzes uvest priklad operatoru,
+    ktery ma v perlu vic ruznych funkci? (spojovani retezcu se iirc provadi teckou)"
+- id: 59199
+  author: Ondra
+  author_email: ''
+  author_url: ''
+  date: '2007-10-29 16:44:49 +0000'
+  date_gmt: '2007-10-29 15:44:49 +0000'
+  content: "V JS \"+\" scita cisla a slucuje retezce, nebo je v tom neco vic?\r\n\r\nObecne
+    se da rict, ze konstrukci ktery maji ruzny vyznam v ruznem kontextu (operandu)
+    je v Perlu spousta. Treba u pole:\r\n@b = @a        # neco jako strcpy(b,a) v
+    C\r\n$b = @a        # neco jako $b=count($a) v PHP\r\n\r\nNo a pak me jeste napada,
+    ale to si asi over:\r\nprint \"Hanka\" + 4       # napise 4\r\nprint \"2 Lenky\"
+    + 4     # napise 6"
+- id: 59201
+  author: tasuki
+  author_email: vit.brunner@gmail.com
+  author_url: http://tasuki.tasuki.org/
+  date: '2007-10-30 00:20:33 +0000'
+  date_gmt: '2007-10-29 23:20:33 +0000'
+  content: "Ano, \"+\" v JS scita cisla i spojuje retezce.\r\n\r\nA k tem konstrukcim,
+    ktere maji ruzny vyznam v ruznem kontextu &ndash; to mi vubec nevadi. Mne vadi
+    konstrukce, ktere maji nekolik ruznych vyznamu v <em>jednom</em> kontextu.\r\n\r\nVyhodnocovani
+    prave strany podle toho co je vlevo, jak to dela perl, je podle me naopak super
+    vec. :)"
+---
+<p>Seriously, what would you think about a language that is <em>weakly typed</em> <strong>and</strong> uses the <em>same operator</em> for concatenation and addition?</p>
+<p>I think it's insane.</p>
+<p>Well, so much for my first encounter with JavaScript. And although I encountered way more problems (most of which were caused by my own stupidity, as usual), the fact that the plus sign (aka +) either adds or concatenates (based possibly on the current mood of the interpreter) struck me as the ultimate wtf.</p>
+<p>Luckily, parseInt() comes to save the day. But still, why not rather use some other operator? I don't really care which... just anything else, mmkay?</p>

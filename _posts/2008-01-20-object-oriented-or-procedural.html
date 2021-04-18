@@ -1,0 +1,236 @@
+---
+layout: post
+status: publish
+published: true
+title: Object-oriented or procedural?
+author:
+  display_name: tasuki
+  login: admin
+  email: vit.brunner@gmail.com
+  url: http://blog.tasuki.org/
+author_login: admin
+author_email: vit.brunner@gmail.com
+author_url: http://blog.tasuki.org/
+wordpress_id: 250
+wordpress_url: http://blog.tasuki.org/object-oriented-or-procedural/
+date: '2008-01-20 16:58:50 +0000'
+date_gmt: '2008-01-20 15:58:50 +0000'
+categories:
+- programming
+tags: []
+comments:
+- id: 60268
+  author: risoknop
+  author_email: risoknop@gmail.com
+  author_url: ''
+  date: '2009-03-14 14:49:27 +0000'
+  date_gmt: '2009-03-14 13:49:27 +0000'
+  content: "Here is a captcha class I've coded few months ago. Not sure if it's better
+    or worse than yours:\r\n\r\nhttp://oopgarden.richardknop.com/index/view/3\r\n\r\nI
+    would probably code it deffirently today than I did back then (have learnt a lot
+    of new PHP stuff lately) but it's not that bad afterall."
+---
+<p>As I mentioned in the previous post, I needed a CAPTCHA algorithm. As I couldn't find anything simple and usable that would do what I want (ie follow the basic principles of captcha creation (readibility for humans, and hopefully unreadibility for machines)), I decided to write my own. The purpose of this was <em>just to generate the image</em>, I left generating the text, passing it in a secure way and all the other boring stuff for others. And as an exercise, I've done both procedural and object-oriented versions.</p>
+<p>I'm not an expert on object oriented programming, so my little class could have probably been written in a better (read: longer and even more confusing) way. Anyway, here it is:</p>
+<p>[code lang="php"]/**<br />
+ * @name    TasuCaptcha<br />
+ * @author  Vit 'tasuki' Brunner<br />
+ * @license GNU GPL<br />
+ * @version 0.001<br />
+ *<br />
+ * remarks:<br />
+ * you need php (duh)<br />
+ * you need gd<br />
+ * you need the font file, in the same directory as this<br />
+ * (get it at http://www.sil.org/~gaultney/gentium/ )<br />
+ *<br />
+ * if you want to use antialiased line, you need function drawQSLine()<br />
+ * get it from http://php.net/manual/function.imageline.php<br />
+ * code_couturier at graffiti dot net<br />
+ * # antialiased draw_line function 1.1 (faster)<br />
+ */</p>
+<p>class TasuCaptcha {<br />
+	private $bg;<br />
+	private $fg;</p>
+<p>	// picture<br />
+	public $width; // width of the picture<br />
+	public $height; // height of the picture</p>
+<p>	// letters<br />
+	public $font; // font for the letters<br />
+	public $fontHeight; // height of the letters<br />
+	public $maxAngle; // maximum angle for the letters<br />
+	public $top; // where the letters should start - y<br />
+	public $left; // where the letters should start - x<br />
+	public $letterWidth; // approximate width of each letter</p>
+<p>	// line<br />
+	public $step; // the length of line between turns<br />
+	public $stepDiff; // the max height difference for step<br />
+	public $lineBorder; // borders for the middle line<br />
+	public $thickness; // thickness of the line<br />
+	public $antialiased; // if true, makes the line antialiased</p>
+<p>	function __construct($text) {<br />
+		// picture<br />
+		$this->width = 170;<br />
+		$this->height = 50;<br />
+		$bgColor = '113355';<br />
+		$fgColor = 'CCCCCC';</p>
+<p>		// letters<br />
+		$this->text = $text;<br />
+		$this->font = './gentium.ttf';<br />
+		$this->fontHeight = 25;<br />
+		$this->maxAngle = 15;<br />
+		$this->top = 35;<br />
+		$this->left = 10;<br />
+		$this->letterWidth = 30;</p>
+<p>		// center line<br />
+		$this->step = 5;<br />
+		$this->stepDiff = 5;<br />
+		$this->lineBorder = 15;<br />
+		$this->thickness = 2;<br />
+		$this->antialiased = false;</p>
+<p>		$this->setBgColor($bgColor);<br />
+		$this->setFgColor($fgColor);<br />
+	}</p>
+<p>	function setBgColor($color) {<br />
+		if (strlen($color) != '6') die('setBgColor needs 6 letter hex color');<br />
+		$this->bg['r'] = hexdec(substr($color, 0, 2));<br />
+		$this->bg['g'] = hexdec(substr($color, 2, 2));<br />
+		$this->bg['b'] = hexdec(substr($color, 4, 2));<br />
+	}<br />
+	function setFgColor($color) {<br />
+		if (strlen($color) != '6') die('setFgColor needs 6 letter hex color');<br />
+		$this->fg['r'] = hexdec(substr($color, 0, 2));<br />
+		$this->fg['g'] = hexdec(substr($color, 2, 2));<br />
+		$this->fg['b'] = hexdec(substr($color, 4, 2));<br />
+	}</p>
+<p>	function drawImage() {<br />
+		// create image and set colors<br />
+		$im = imagecreatetruecolor($this->width, $this->height);<br />
+		$background = imagecolorallocate($im,<br />
+			$this->bg['r'], $this->bg['g'], $this->bg['b']);<br />
+		imagefill($im, 0, 0, $background);<br />
+		$textcolor = imagecolorallocate($im,<br />
+			$this->fg['r'], $this->fg['g'], $this->fg['b']);</p>
+<p>		// draw letters<br />
+		for ($i = 0; $i < strlen($this->text); $i++) {<br />
+			$this->angle = rand(- $this->maxAngle, $this->maxAngle);<br />
+			imagettftext($im, $this->fontHeight, $this->angle,<br />
+				$this->left + $this->letterWidth * $i, $this->top,<br />
+				$textcolor, $this->font, $this->text{$i});<br />
+		}</p>
+<p>		// draw the line<br />
+		$curheight = $this->height / 2;<br />
+		for ($i = 0; $i < ($this->width / $this->step); $i++) {<br />
+			$lastheight = $curheight;<br />
+			$curheight = $curheight + rand(-$this->stepDiff, $this->stepDiff);<br />
+			if ($curheight > $this->height - $this->lineBorder)<br />
+				$curheight -= $this->stepDiff;<br />
+			if ($curheight < $this->lineBorder)<br />
+				$curheight += $this->stepDiff;</p>
+<p>			// this could be done better...<br />
+			for ($j = 0; $j < $this->thickness; $j++) {<br />
+				if ($this->antialiased) // draw antialiased line<br />
+					drawQSLine($im, $this->step * $i, $lastheight - $j,<br />
+						$this->step * $i + $this->step, $curheight - $j,<br />
+						$this->fg['r'], $this->fg['g'], $this->fg['b']);<br />
+				else // draw aliased line<br />
+					imageline($im, $this->step * $i, $lastheight - $j,<br />
+						$this->step * $i + $this->step, $curheight - $j,<br />
+						$textcolor);<br />
+			}<br />
+		}</p>
+<p>		// output the image<br />
+		header('Content-type: image/png');<br />
+		imagepng($im);<br />
+		imagedestroy($im);</p>
+<p>		// maybe someone could find this useful<br />
+		return $this->text;<br />
+	}<br />
+}</p>
+<p>// now we can try to use it:<br />
+$captcha = new TasuCaptcha($cnum);<br />
+$captcha->antialiased = true;<br />
+$captcha->drawImage();[/code]</p>
+<p>Well, that was long, wasn't it? And most of the time we were just moving values around... $this->shit = $shit;</p>
+<p>Now the procedural version:</p>
+<p>[code lang="php"]/**<br />
+ * @name    tasucaptcha<br />
+ * @author  Vit 'tasuki' Brunner<br />
+ * @license GNU GPL<br />
+ * @version 0.001<br />
+ *<br />
+ * remarks:<br />
+ * you need php (duh)<br />
+ * you need gd<br />
+ * you need the font file, in the same directory as this<br />
+ * (get it at http://www.sil.org/~gaultney/gentium/ )<br />
+ *<br />
+ * if you want to use antialiased line, you need function drawQSLine()<br />
+ * get it from http://php.net/manual/function.imageline.php<br />
+ * code_couturier at graffiti dot net<br />
+ * # antialiased draw_line function 1.1 (faster)<br />
+ */</p>
+<p>function tasucaptcha($text) {<br />
+	// picture<br />
+	$width = 170; // width of the picture<br />
+	$height = 50; // height of the picture<br />
+	$bgcolor = '113355'; // please keep this 6 letters long<br />
+	$fgcolor = 'CCCCCC'; // please keep this 6 letters long</p>
+<p>	// letters<br />
+	$font = './gentium.ttf'; // font for the letters<br />
+	$fontHeight = 25; // height of the letters<br />
+	$maxAngle = 15; // maximum angle for the letters<br />
+	$top = 35; // where the letters should start - y<br />
+	$left = 10; // where the letters should start - x<br />
+	$letterWidth = 30; // approximate width of each letter</p>
+<p>	// center line<br />
+	$step = 5; // the length of line between turns<br />
+	$stepdiff = 5; // the max height difference for step<br />
+	$lineBorder = 15; // borders for the middle line<br />
+	$thickness = 2; // thickness of the line<br />
+	$antialiased = false; // if true, makes the line antialiased</p>
+<p>	// END OF SETTINGS</p>
+<p>	// get colors<br />
+	$bg['r'] = hexdec(substr($bgcolor, 0, 2));<br />
+	$bg['g'] = hexdec(substr($bgcolor, 2, 2));<br />
+	$bg['b'] = hexdec(substr($bgcolor, 4, 2));<br />
+	$color['r'] = hexdec(substr($fgcolor, 0, 2));<br />
+	$color['g'] = hexdec(substr($fgcolor, 2, 2));<br />
+	$color['b'] = hexdec(substr($fgcolor, 4, 2));</p>
+<p>	// set up the image<br />
+	$im = imagecreatetruecolor($width, $height);<br />
+	$background = imagecolorallocate($im, $bg['r'], $bg['g'], $bg['b']);<br />
+	imagefill($im, 0, 0, $background);<br />
+	$textcolor = imagecolorallocate($im, $color['r'], $color['g'], $color['b']);</p>
+<p>	// draw letters<br />
+	for ($i = 0; $i < strlen($text); $i++) {<br />
+		$angle = rand(-$maxAngle, $maxAngle);<br />
+		imagettftext($im, $fontHeight, $angle, $left + $letterWidth*$i,<br />
+			$top, $textcolor, $font, $text{$i});<br />
+	}</p>
+<p>	// draw the line<br />
+	$curheight = $height/2;<br />
+	for ($i = 0; $i < ($width / $step); $i++) {<br />
+		$lastheight = $curheight;<br />
+		$curheight = $curheight + rand(-$stepdiff, $stepdiff);<br />
+		if ($curheight > $height - $lineBorder) $curheight -= $stepdiff;<br />
+		if ($curheight < $lineBorder) $curheight += $stepdiff;</p>
+<p>		//<br />
+		for ($j = 0; $j < $thickness; $j++) {<br />
+			if ($antialiased) // create antialiased line<br />
+				drawQSLine($im, $step * $i, $lastheight - $j, $step * $i + $step,<br />
+					$curheight - $j, $color['r'], $color['g'], $color['b']);<br />
+			else // draw aliased line<br />
+				imageline($im, $step * $i, $lastheight - $j, $step * $i + $step,<br />
+					$curheight - $j, $textcolor);<br />
+		}<br />
+	}</p>
+<p>	// draw the image<br />
+	header('Content-type: image/png');<br />
+	imagepng($im);<br />
+	imagedestroy($im);</p>
+<p>	return $text;<br />
+}<br />
+tasucaptcha($cnum);[/code]</p>
+<p>Unless one is paid by lines of code, one must conclude that the second version is much better. It's half as long and twice as readable.</p>
+<p>As for the captcha itself -- I can't guarantee that the results are machine-unreadable, but at least they are human readable. :-)</p>

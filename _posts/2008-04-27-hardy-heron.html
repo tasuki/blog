@@ -1,0 +1,164 @@
+---
+layout: post
+status: publish
+published: true
+title: Hardy Heron
+author:
+  display_name: tasuki
+  login: admin
+  email: vit.brunner@gmail.com
+  url: http://blog.tasuki.org/
+author_login: admin
+author_email: vit.brunner@gmail.com
+author_url: http://blog.tasuki.org/
+wordpress_id: 265
+wordpress_url: http://blog.tasuki.org/hardy-heron/
+date: '2008-04-27 17:21:04 +0000'
+date_gmt: '2008-04-27 16:21:04 +0000'
+categories:
+- linux
+tags: []
+comments:
+- id: 59590
+  author: Keo
+  author_email: keo@keo.cz
+  author_url: ''
+  date: '2008-04-28 15:56:32 +0000'
+  date_gmt: '2008-04-28 14:56:32 +0000'
+  content: "I upgraded to Hardy beta from Gutsy and it was kind of a nightmare.\r\n
+    \r\nI used the package-manager to upgrade and it hung up. Every time. I managed
+    to figure out that it just downloads a Python program into /tmp and launch it.
+    Fortunately this program has a text interface too which worked. Sort of. It complained
+    about some dependencies so I just run apt-get install -f and then again the uploader.
+    Don't really know why but it finished the upgrade succesfully. I do hope this
+    was just a glitch in the beta because I can't imagine a regular user doing this.\r\n\r\nThe
+    new X.org is fine until you really need to configure it manually. My graphics
+    card needs openchrome driver but X.org can't detect it automatically. Configuring
+    xorg.conf and restarting X didn't work. Configuring X.org and restarting the whole
+    system *did* work. WTF?\r\n\r\nThe upgraded system is mostly stable. Again, sort
+    of. Actually it drives me nuts. Firefox and Epiphany crashes with probability
+    of 0.5 on every opened site with Flash. Sometimes even on heavy Javascript like
+    GMail. Fortunately it remembers all opened tabs and can restore them on the next
+    launch, but it is quite annoying. Opera is temporary solution because Flash doesn't
+    work with it."
+- id: 59591
+  author: tasuki
+  author_email: vit.brunner@gmail.com
+  author_url: http://blog.tasuki.org/
+  date: '2008-04-28 21:41:07 +0000'
+  date_gmt: '2008-04-28 20:41:07 +0000'
+  content: "As for upgrading, I can't comment on that now... but it always used to
+    be a nightmare. :-S\r\n\r\nMy firefox doesn't crash... maybe I just got lucky.
+    ;)\r\nAnd what I really appreciate about it is that all those javascript-heavy
+    sites like gmail and igoogle are now actually usable again (even with firebug
+    on, which was something completely impossible with FF2, there I had to wait for
+    a looong time even with firebug turned off)."
+- id: 59592
+  author: Drc
+  author_email: stepan.mikula@gmail.com
+  author_url: ''
+  date: '2008-04-29 00:08:08 +0000'
+  date_gmt: '2008-04-28 23:08:08 +0000'
+  content: "Ahoj,\r\nmoje zkušenosti jsou tak někde na puli cesty. (Připomínám, že
+    vlastním AMD64 a nvidii 6600 (doufam).)\r\n\r\nStejne jako Vitek jsem instaloval
+    na zelene louce. Hlavne kvuli tomu, ze jsem mel kvuli Windowsi partition (jiz
+    dlouho urcene pro zalohovani) swapku asi v puli disku a naznal jsem, ze je cas
+    na zmenu.\r\n\r\nNa instalaci me prekvapila predevsim rychlost -- myslim, ze byla
+    rychlejsi asi tak o tretinu nez minule, ale to muze byt subjektivni.\r\n\r\nPo
+    startu jsem narazil na nova Xka -- rozpoznání grafické karty proběhlo bez problémů,
+    ale monitor to jaksi nezvládlo. (Nastala vtipné situace, kdy jsem mel zaroven
+    Compiz a rozliseni cca 600 na 400 pri 50Hz -- paráda.)\r\nNakonec jsem to vyresil
+    stejne jako Keo -- manualni upravou xorg.conf a restartem celeho systemu (ctrl+alt+backspace
+    nepomohlo). Kdysi jsem cetl, ze se uvazuje o tom, ze by se Xka startovaly uz na
+    zacatku bootovani -- nemohlo by to byt tim? (Nechce se mi ted hledat jestli to
+    tak fakt je.)\r\n\r\nDalsi problem mam s FF3b5. Casto se mi stava, ze prestane
+    reagovat -- nekdy se kousne a nekdy ne (po chvilce se zacne zase chovat slusne).
+    Bohuzel jsem neprisel na nejaky jednoduchy duvod (stranka z flash veci). Naposledy
+    se mi to stalo u diskuzniho fora v ISu.\r\n\r\nPosledni veci, ktera me neprijeme
+    prekvapila je zahrivani grafiky. Pri necem narocnejsim se totiz dostane na 60
+    stupnu vyrazne rychleji nez s verzi 7.10 (tam se mi to stalo max jednou a tim
+    si jeste nejsem jisty). Zatim nevim cim to je. (Driver stejny, Compiz vypnuty)\r\n\r\nJinak
+    se musim pridat -- \"Wow\" :-)\r\n\r\nP.S. Na druhem pc (rok vyroby tak 2001)
+    beha Ubuntu 8.04 (vcetne Compizu!!!) stejne rychle jako XPecka (tj OS z doby kdy
+    byl dotycny pc mlad) (oboji nova instalace s minimem doinstalovaných aplikaci)
+    -- Wow!"
+- id: 59595
+  author: tasuki
+  author_email: vit.brunner@gmail.com
+  author_url: http://blog.tasuki.org/
+  date: '2008-04-29 17:52:22 +0000'
+  date_gmt: '2008-04-29 16:52:22 +0000'
+  content: "\"Hlavne kvuli tomu, ze jsem mel kvuli Windowsi partition (jiz dlouho
+    urcene pro zalohovani) swapku asi v puli disku a naznal jsem, ze je cas na zmenu.\"\r\n\r\nJa
+    mam swapku uplne na konci... ono zalezi na tom, kde je umistena?\r\n\r\nA jinak
+    koukam, ze mam asi fakt stesti (hlavne na ten FF, ktery mi nepada) ^^"
+- id: 59596
+  author: Drc
+  author_email: stepan.mikula@gmail.com
+  author_url: ''
+  date: '2008-04-29 21:12:24 +0000'
+  date_gmt: '2008-04-29 20:12:24 +0000'
+  content: "Asi zalezi jak casto swapujes -- ale je fakt, ze to ja skoro nedelam.
+    (Nekde jsem cetl, ze by to tak \"melo byt\". Nejspis kvuli buzeni disku -- viz
+    nahore. Ale mozna je to uplna blbost  :lol:)\r\n\r\nbtw vzpomel jsem si, ze jsem
+    Ubuntu upgradoval nekolikrat (pokazde na final release) a mel jsem s tim problemy
+    zpusobene pouze vlastni blbosti.\r\n\r\nJinak vyhlasuji soutez: kdo mi naistaluje
+    Matlab dostane bůra.  :,-( Uz mi z toho zacina hrabat. :-Z  :-x"
+- id: 59597
+  author: ''
+  author_email: ''
+  author_url: ''
+  date: '2008-04-30 15:59:50 +0000'
+  date_gmt: '2008-04-30 14:59:50 +0000'
+  content: "Data, ktera jsou na konci disku se ctou rychleji, ne? Take jsem cetl,
+    ze je dobre mit tech swapek nekolik (pouziva se ta, ke ktre ma hlavicka zrovna
+    bliz). Tezko rict.\r\n\r\nJa s upgrade na Hardy nemel zadny problem.\r\nMatlab
+    jsem nikdy neinstaloval, jen Maple (je v Jave)."
+- id: 59598
+  author: Ondra
+  author_email: ''
+  author_url: ''
+  date: '2008-04-30 16:00:32 +0000'
+  date_gmt: '2008-04-30 15:00:32 +0000'
+  content: To jsem byl ja :).
+- id: 59599
+  author: Keo
+  author_email: keo@keo.cz
+  author_url: ''
+  date: '2008-04-30 20:32:58 +0000'
+  date_gmt: '2008-04-30 19:32:58 +0000'
+  content: Rychlost čtení záleží na způsobu, jakým operační systém pracuje s diskem.
+    Obvykle je to tak, že hlava je v klidu uprostřed disku a při vyřizování požadavků
+    se pohybuje na začátek, zpět doprostřed, na konec, zase doprostřed atd. pořád
+    dokola. Při téhle cestě načítá a zapisuje sektory ve frontě, takže disk pracuje
+    rovnoměrně a neutrhne se mu hlava. Takže nejlepší je to asi uprostřed. Ale dnes
+    mají komply tolik paměti, že je to pro normální použití asi jedno.
+- id: 59600
+  author: Drc
+  author_email: stepan.mikula@gmail.com
+  author_url: ''
+  date: '2008-04-30 23:15:18 +0000'
+  date_gmt: '2008-04-30 22:15:18 +0000'
+  content: "Schvalne jsem si zkusil spustit absurdni mnozstvi aplikaci (n oken FF,
+    OO, nekolik filmu, gimp, inkscape a spousta dalsich) a vytahl jsem ramku na 2/3.
+    Ve swapce pritom bylo necelych 40 MB =&gt; asi je to fakt dost jedno  ^^\r\n\r\nNicmene
+    Matlab (ktery stale nemam) by tomu asi dost \"pomohl\". Dival jsem se, ze posledni
+    verze (R2008a) uz ma doporuceno 2GB RAM.  :-S"
+- id: 59624
+  author: CarlJung
+  author_email: ''
+  author_url: ''
+  date: '2008-05-06 13:15:11 +0000'
+  date_gmt: '2008-05-06 12:15:11 +0000'
+  content: I did a fresh intall as well. It didn't even boot without manually editing
+    the grub conf file. It wanted to boot from the wrong disc.
+---
+<p>As my Ubuntu Edgy (6.10) was not quite cutting edge anymore, I decided to get Hardy Heron.</p>
+<p>Upgrade over two skipped releases would be suicidal, so I decided to do a fresh install. I also wanted to preserve my old Edgy... you know -- just in case. That involved cutting off half of my system partition to create a new partition. You might expect a horror story now, but in fact it all went flawlessly (I just used gparted, the ext3 got fscked, shrinked to a half without a single glitch, passed fsck again and voila).</p>
+<p>Installation of Hardy was provided by a nice graphical installer that didn't even bother asking questions about my hardware (it just asked me about country and language settings and stuff like that). It recognised my monitor resolution, I installed the proprietary nvidia-glx-legacy drivers with two clicks (yes, it's not even necessary to touch xorg.conf anymore). I just had to set up the wifi connection manually, because the access point has a hidden ESSID (but all the drivers were already there).</p>
+<p>I was amazed how everything works out of the box or almost out of the box. Need to play a movie and don't have the codec? You get a pop-up asking if you would like to download the codec. You click yes and enter your password, you are all set.</p>
+<p>Hardy Heron includes Firefox 3 (beta 5 as of now), which is great, because the speedup over Firefox 2 is rather significant (and it does have some nice new features too). The only sad thing is that Google Toolbar doesn't work in FF3B5 (yet), but well, I don't really need to see the pagerank of every page I visit.</p>
+<p>With my old 32MB GeForce 2 I never bothered installing <a href="http://en.wikipedia.org/wiki/Compiz">Compiz</a>, but as it comes out of the box now, I just had to try it. And whooo it rocks. The cube is amazing and there is also this great "scale windows" thingy, that shows all open windows at once so that you can switch between them. And then there are hundreds of different visual effects...</p>
+<p>Gnome now allows repositioning the window toolbar items by drag&drop'ing them. That is the feature I've always (secretely) wanted. It's really useful (as opposed to grouping, which I always (not so secretly) hated).</p>
+<p>All I can say is: "<strong>Wow</strong>".</p>
+<p>PS: I don't say this often, but I have to say it now: In case you haven't done so yet -- with XP being obsolete and Vista near unusable -- this is <em>definitely the best time to switch to Linux</em>. And if you encounter any problems, I'll be happy to help you with troubleshooting.</p>

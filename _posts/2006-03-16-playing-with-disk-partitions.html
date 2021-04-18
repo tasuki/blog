@@ -1,0 +1,36 @@
+---
+layout: post
+status: publish
+published: true
+title: Playing with disk partitions
+author:
+  display_name: tasuki
+  login: admin
+  email: vit.brunner@gmail.com
+  url: http://blog.tasuki.org/
+author_login: admin
+author_email: vit.brunner@gmail.com
+author_url: http://blog.tasuki.org/
+wordpress_id: 77
+wordpress_url: http://blog.tasuki.org/2006/03/16/playing-with-disk-partitions/
+date: '2006-03-16 12:10:12 +0000'
+date_gmt: '2006-03-16 11:10:12 +0000'
+categories:
+- linux
+- computers
+tags: []
+comments:
+- id: 46
+  author: Ondra
+  author_email: ''
+  author_url: ''
+  date: '2006-03-22 14:51:25 +0000'
+  date_gmt: '2006-03-22 13:51:25 +0000'
+  content: Jojo, mám zkušenosti s několika GNU/Linuxovými nástroji, že měnit velikost
+    paritions jde jenom u FAT32 a NTFS. Cože je divný... Asi to nějak jde ale zas
+    tak do hloubky jsem nešel.
+---
+<p>Yesterday I decided to quadruple my swap (from 256mb to 1gb) so that I can play more hands in poker before having to restart the application that continually eats more and more of my memory.</p>
+<p>Firstly I cut off that 1gb out of my fat32 data partition, that went relatively easy with me only having to umount all the partitions around and that was basically all.</p>
+<p>Then I destroyed the former swap, which is after my ext3 linux partition and before fat32 data one. I thought it would be neat to add these 256mb to my ext3 (yeah, I still have 40gb hdd which has been completely full for a very long time) but that obviously wasn't possible as there is root mounted and I couldn't umount it. So I tried to run a live cd and thought all would be ok, but for some reason qtparted doesn't want to enlarge that ext3. :-(<br />
+Sorry for boring geekish post...</p>

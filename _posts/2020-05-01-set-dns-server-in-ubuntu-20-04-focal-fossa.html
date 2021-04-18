@@ -1,0 +1,38 @@
+---
+layout: post
+status: publish
+published: true
+title: Set DNS server in Ubuntu 20.04 Focal Fossa
+author:
+  display_name: tasuki
+  login: admin
+  email: vit.brunner@gmail.com
+  url: http://blog.tasuki.org/
+author_login: admin
+author_email: vit.brunner@gmail.com
+author_url: http://blog.tasuki.org/
+wordpress_id: 913
+wordpress_url: https://blog.tasuki.org/?p=913
+date: '2020-05-01 23:29:22 +0000'
+date_gmt: '2020-05-01 22:29:22 +0000'
+categories:
+- linux
+tags: []
+comments: []
+---
+<p>Set contents of <code>/etc/systemd/resolved.conf</code> to:</p>
+<pre>[Resolve]
+DNS=45.90.28.239 45.90.30.239
+Domains=~.</pre>
+<p>Apparently spaces are separators. Those are NextDNS servers in the example btw. NextDNS has not sponsored this post.</p>
+<p>Then run: <code>$ sudo service systemd-resolved restart</code></p>
+<p>This was one of about two hundred million things that took me too long to figure out while setting up Ubuntu 20.04.</p>
+<hr>
+<p>And in case you want to <a href="https://github.com/systemd/systemd/issues/2514#issuecomment-179203186">resolve single-label lookups, <code>systemd-resolved</code> don't do that</a>.</p>
+<ul>
+<li><code>apt install dnsmasq resolvconf</code></li>
+<li><a href="https://askubuntu.com/a/899338">Disable <code>systemd-resolved</code></a></li>
+<li>Set <code>dns=dnsmasq</code> in <code>/etc/NetworkManager/NetworkManager.conf</code></li>
+<li>Set <code>nameserver 127.0.0.1</code> in <code>/etc/resolvconf/resolv.conf.d/base</code></li>
+<li>Restart all teh things</li>
+</ul>

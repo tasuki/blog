@@ -1,0 +1,44 @@
+---
+layout: post
+status: publish
+published: true
+title: Few WordPress-related improvements
+author:
+  display_name: tasuki
+  login: admin
+  email: vit.brunner@gmail.com
+  url: http://blog.tasuki.org/
+author_login: admin
+author_email: vit.brunner@gmail.com
+author_url: http://blog.tasuki.org/
+wordpress_id: 249
+wordpress_url: http://blog.tasuki.org/few-wordpress-related-improvements/
+date: '2008-01-19 13:44:09 +0000'
+date_gmt: '2008-01-19 12:44:09 +0000'
+categories:
+- internet
+- programming
+tags: []
+comments: []
+---
+<p>In wordpress database, column comment_status is of type enum('open', 'closed', 'registered_only'). But for some reason, 'registered_only' is never used anywhere...</p>
+<p>I use <a href="http://dllh.wordpress.com/2006/09/06/timed-disabling-of-wordpress-comments/">disable comments plugin</a>, which is excellent because it is very simple. Here is the relevant part:<br />
+[code lang="php"]$wpdb->query('UPDATE wp_posts<br />
+SET comment_status = "closed", ping_status = "closed"<br />
+WHERE DATEDIFF(NOW(), post_date) > ' . $days);[/code]</p>
+<p>And if you want it to set the comments to registered_only, you only need to change it to:<br />
+[code lang="php"]$wpdb->query('UPDATE wp_posts<br />
+SET comment_status = "registered_only", ping_status = "closed"<br />
+WHERE DATEDIFF(NOW(), post_date) > ' . $days);[/code]</p>
+<p>Well... now if only 'registered only' did what it was supposed to, you'd be done with it. But as it doesn't, we need to change some things. They are dependent on the theme you're using, I'll use the default theme to illustrate what needs to be changed. First, look into comments.php file for something this:<br />
+[code lang="php"]if ('open' == $post->comment_status)[/code]<br />
+and change it to:<br />
+[code lang="php"]if ('open' == $post->comment_status<br />
+    || 'registered_only' == $post->comment_status)[/code]<br />
+In the default theme, this needed to be changed at two places.</p>
+<p>Then there's one more thing:<br />
+[code lang="php"]if (get_option('comment_registration') && !$user_ID)[/code]<br />
+should be changed to:<br />
+[code lang="php"]if ((get_option('comment_registration')<br />
+    || ('registered_only' == $post->comment_status)) && !$user_ID)[/code]</p>
+<p>After that, it pretty much works. You need to have user registration enabled in wordpress, though. Also, while I was at it, I decided to prevent against bots registering. So I installed <a href="http://wordpress.org/extend/plugins/sabre/">Sabre</a>. Sabre is nice, but its CAPTCHA rather sucks... well, anyway -- more on that in the next post. 8-)</p>

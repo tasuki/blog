@@ -1,0 +1,130 @@
+---
+layout: post
+status: publish
+published: true
+title: Nothing is random, everything has a meaning.
+author:
+  display_name: tasuki
+  login: admin
+  email: vit.brunner@gmail.com
+  url: http://blog.tasuki.org/
+author_login: admin
+author_email: vit.brunner@gmail.com
+author_url: http://blog.tasuki.org/
+wordpress_id: 292
+wordpress_url: http://blog.tasuki.org/nothing-is-random-everything-has-a-meaning/
+date: '2008-11-12 23:32:58 +0000'
+date_gmt: '2008-11-12 22:32:58 +0000'
+categories:
+- art
+- programming
+tags: []
+comments:
+- id: 59995
+  author: ignus
+  author_email: m.a.lukasiewicz@gmail.com
+  author_url: ''
+  date: '2008-11-13 13:58:36 +0000'
+  date_gmt: '2008-11-13 12:58:36 +0000'
+  content: Not bad  :-)
+---
+<p><strong>Nothing is <em>random</em>.</strong></p>
+<p><strong>Everything has a <em>meaning</em>.</strong></p>
+<p>The scene fits in under 100 lines of code (with comments! :)), so I decided to publish it here.</p>
+<p><code lang="povray"><br />
+/**<br />
+ * Simple POV-Ray scene with reflective pillars<br />
+ *<br />
+ * @author   Vit 'tasuki' Brunner<br />
+ * @license  GNU GPL, http://www.gnu.org/copyleft/gpl.html<br />
+ * @version  2.7, 2008-11-05<br />
+ */</p>
+<p>// dark and reflective texture<br />
+#declare ShinyDark =<br />
+texture {<br />
+    pigment { rgb 0 }<br />
+    finish {<br />
+        ambient 0<br />
+        // reflection .3 // dark version<br />
+        reflection .6 // light version<br />
+        specular 3<br />
+    }<br />
+}</p>
+<p>// create a pillar of specified height<br />
+// kind of hackish, but I can't find a better way<br />
+#macro pillar(xx, yy, height)<br />
+    #declare counter = height * 2;</p>
+<p>    #while (counter > -1)<br />
+        superellipsoid {<br />
+            <.3, .3><br />
+            texture { ShinyDark }<br />
+            translate y * counter * .5<br />
+            translate x * xx * 2.2<br />
+            translate z * yy * 2.2<br />
+        }</p>
+<p>        #declare counter = counter - 1;<br />
+    #end<br />
+#end</p>
+<p>// just some random (random, really?) pillars<br />
+pillar(-3, 3, 2)<br />
+pillar(-1, 3, 4)<br />
+pillar( 0, 3, 3)<br />
+pillar( 2, 3, 0)<br />
+pillar( 3, 3, 2)<br />
+pillar( 0, 2, 2)<br />
+pillar( 1, 2, 1)<br />
+pillar(-1, 1, 3)<br />
+pillar(-1, 0, 2)<br />
+pillar( 0, 0, 1)<br />
+pillar( 2, 0, 3)<br />
+pillar(-2,-1, 2)<br />
+pillar(-1,-1, 3)<br />
+pillar( 1,-1, 0)<br />
+pillar( 3,-1, 2)<br />
+pillar(-1,-2, 1)<br />
+pillar( 0,-2, 2)<br />
+pillar( 2,-2, 1)<br />
+pillar( 3,-2, 0)<br />
+// there's no such thing as random...</p>
+<p>// the sphere everything is wrapped in<br />
+sphere {<br />
+    <0, 100, 0>, 100<br />
+    hollow<br />
+    pigment { rgb 1 }<br />
+    finish {<br />
+        ambient .6<br />
+        reflection .05<br />
+    }<br />
+}</p>
+<p>// get light quality from clock (+K in params)<br />
+#declare qualight = clock;</p>
+<p>// back right less bright white light<br />
+light_source {<br />
+    <30, 25, 40> rgb .5<br />
+    area_light <0, 10, 0>, <0, 0, 10>, qualight, qualight<br />
+    adaptive 1 jitter circular orient<br />
+}</p>
+<p>// front right white light<br />
+light_source {<br />
+    <30, 20, -30> rgb .7<br />
+    area_light <0, 10, 0>, <0, 0, 10>, qualight, qualight<br />
+    adaptive 1 jitter circular orient<br />
+}</p>
+<p>// front left blue light<br />
+light_source {<br />
+    <-15, 25, -15> rgb <.3, .7, .9><br />
+    area_light <0, 20, 0>, <0, 0, 20>, qualight, qualight<br />
+    adaptive 1 jitter circular orient<br />
+}</p>
+<p>camera {<br />
+    location <7, 9, -14><br />
+    look_at  <2, 1,   0><br />
+}<br />
+</code></p>
+<p>To render the picture, you should run something like:</p>
+<p><code><br />
+povray +Ifilename.pov +FN +W1024 +H768 +Q9 +QR +A0.5 +AM2 +K11<br />
+</code></p>
+<p>Well, that's it. Hope you enjoyed ^^</p>
+<p>Oh, you actually want to see the picture? Please <a href="http://tasukisempai.deviantart.com/art/Everything-has-a-meaning-103410696">check it out on deviantart</a>.</p>
+<p>And remember: Nothing is random, everything has a meaning...</p>

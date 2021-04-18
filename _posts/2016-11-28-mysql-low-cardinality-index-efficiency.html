@@ -1,0 +1,130 @@
+---
+layout: post
+status: publish
+published: true
+title: MySQL low cardinality index efficiency
+author:
+  display_name: tasuki
+  login: admin
+  email: vit.brunner@gmail.com
+  url: http://blog.tasuki.org/
+author_login: admin
+author_email: vit.brunner@gmail.com
+author_url: http://blog.tasuki.org/
+wordpress_id: 851
+wordpress_url: https://blog.tasuki.org/?p=851
+date: '2016-11-28 20:11:38 +0000'
+date_gmt: '2016-11-28 19:11:38 +0000'
+categories:
+- computers
+tags: []
+comments: []
+---
+<p>I've heard the opinion that indexes on low cardinality columns don't work well. I set out to disprove that.</p>
+<p>First, let's create a table with a boolean column <em>"active"</em> and fill it with dummy data. Please note it includes a (default, B-Tree) index on the <em>"active"</em> column.</p>
+<pre><code>
+root@localhost test > show create table users\G
+*************************** 1. row ***************************
+Table: users
+Create Table: CREATE TABLE `users` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`name` varchar(50) DEFAULT NULL,
+`email` varchar(100) DEFAULT NULL,
+`active` tinyint(1) DEFAULT NULL,
+PRIMARY KEY (`id`),
+KEY `active` (`active`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+1 row in set (0.00 sec)
+
+root@localhost test > DELIMITER ;;
+root@localhost test > CREATE PROCEDURE insert_random(IN amount INT, IN percent_active INT)
+    -> BEGIN
+    ->   DECLARE counter INT DEFAULT 0;
+    ->   myloop: LOOP
+    ->     if (counter = amount) THEN
+    ->       LEAVE myloop;
+    ->     end if;
+    ->     INSERT INTO users SET
+    ->       name = UUID(),
+    ->       email = UUID(),
+    ->       active = IF(FLOOR(RAND() * 100) < percent_active, 1, 0);
+    ->     SET counter = counter + 1;
+    ->   END LOOP;
+    -> END ;;
+Query OK, 0 rows affected (0.00 sec)
+
+root@localhost test > DELIMITER ;
+
+root@localhost test > call insert_random(1000000, 10);
+Query OK, 1 row affected (36.60 sec)
+
+root@localhost test > select count(*) from users;
++----------+
+| count(*) |
++----------+
+|  1000000 |
++----------+
+1 row in set (0.18 sec)
+</code></pre>
+<p>We've inserted a million users into our table! That took some time. Please note the 0.18 seconds to count them all.</p>
+<p>Now, let's see how fast we can count the active users:</p>
+<pre><code>
+root@localhost test > select count(*) from users where active = true;
++----------+
+| count(*) |
++----------+
+|    99887 |
++----------+
+1 row in set (0.04 sec)
+</code></pre>
+<p>Cool, pretty fast. Can you explain that?</p>
+<pre><code>root@localhost test > explain select count(*) from users where active = true\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: users
+   partitions: NULL
+         type: ref
+possible_keys: active
+          key: active
+      key_len: 2
+          ref: const
+         rows: 208462
+     filtered: 100.00
+        Extra: Using index
+1 row in set, 1 warning (0.00 sec)
+</code></pre>
+<p>Now let's drop the index and run the test again:</p>
+<pre><code>
+root@localhost test > alter table users drop key active;                                                                                                                                       Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+root@localhost test > select count(*) from users where active = true;
++----------+
+| count(*) |
++----------+
+|    99887 |
++----------+
+1 row in set (0.24 sec)
+</code></pre>
+<p>Wow, a lot slower... I've ran the selects a couple of times with consistent results to verify no caching was influencing the results. Let's see the explain:</p>
+<pre><code>
+root@localhost test > explain select count(*) from users where active = true\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: users
+   partitions: NULL
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 912236
+     filtered: 10.00
+        Extra: Using where
+1 row in set, 1 warning (0.00 sec)
+</code></pre>
+<p>As you hopefully know: <em>"Using index"</em> good, <em>"Using where"</em> bad.</p>
+<p><strong>TL;DR A boolean column consisting of 10% TRUE and 90% FALSE queried for TRUE values using an index takes 0.04 sec, while not using an index takes 0.24 sec. The index speeds up the query by about a factor of six.</strong></p>
+<p>I've repeated the test with worse case scenario of a binary column split 50/50. 50% true, 50% false. The numbers are a bit less consistent, but generally around 0.16 for the indexed version and 0.24 for the unindexed version. <em>Go indexes!</em></p>

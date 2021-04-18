@@ -1,0 +1,83 @@
+---
+layout: post
+status: publish
+published: true
+title: ".htaccess, document root and Zend Framework"
+author:
+  display_name: tasuki
+  login: admin
+  email: vit.brunner@gmail.com
+  url: http://blog.tasuki.org/
+author_login: admin
+author_email: vit.brunner@gmail.com
+author_url: http://blog.tasuki.org/
+wordpress_id: 290
+wordpress_url: http://blog.tasuki.org/htaccess-document-root-and-zend-framework/
+date: '2008-10-29 19:47:01 +0000'
+date_gmt: '2008-10-29 18:47:01 +0000'
+categories:
+- programming
+tags: []
+comments:
+- id: 59989
+  author: ''
+  author_email: ''
+  author_url: ''
+  date: '2008-11-10 13:12:36 +0000'
+  date_gmt: '2008-11-10 12:12:36 +0000'
+  content: ":-x :-x :-x :-x"
+- id: 59992
+  author: Michael Goetze
+  author_email: mgoetze@mgoetze.net
+  author_url: ''
+  date: '2008-11-13 00:00:23 +0000'
+  date_gmt: '2008-11-12 23:00:23 +0000'
+  content: "Why on earth would you want to install Zend Framework?!?\r\n\r\nAnyway,
+    I suspect your first try at rewriting works with Apache 2.2 but not Apache 2.0,
+    however, I'm too lazy to test it."
+- id: 60053
+  author: Amin
+  author_email: cordless_man@yahoo.com
+  author_url: http://www.foo.ir
+  date: '2008-12-22 19:20:33 +0000'
+  date_gmt: '2008-12-22 18:20:33 +0000'
+  content: "Hi, Your solution is really effective but i test it in different aspect
+    and failed in some point. for example BaseUrl access with this solution isn't
+    possible and you couldn't access to image folder in include in some of servers.\r\n\r\nThanks."
+- id: 60087
+  author: Brian
+  author_email: brian.wisti@gmail.com
+  author_url: ''
+  date: '2009-01-09 20:44:21 +0000'
+  date_gmt: '2009-01-09 19:44:21 +0000'
+  content: Ah, thanks for that. I was having a redirect problem w/ ZF as well. This
+    wasn't the exact problem, but it remind me to look at my .htaccess, which I'd
+    forgotten to update when I moved my project files around :)
+- id: 60267
+  author: Richard Knop
+  author_email: risoknop@gmail.com
+  author_url: http://richardknop.com
+  date: '2009-03-14 14:44:21 +0000'
+  date_gmt: '2009-03-14 13:44:21 +0000'
+  content: "Here is imho a better solution for this issue:\r\n\r\nhttp://www.alberton.info/zend_framework_mod_rewrite_shared_hosting.html\r\n\r\nRegards,\r\nRichard"
+- id: 60269
+  author: tasuki
+  author_email: vit.brunner@gmail.com
+  author_url: http://blog.tasuki.org/
+  date: '2009-03-14 14:54:13 +0000'
+  date_gmt: '2009-03-14 13:54:13 +0000'
+  content: Thanks, Richard -- that solution is definitely better as it doesn't rely
+    on a list of file extensions.
+---
+<p>It's funny but I couldn't find anyone having this issue. It certainly isn't limited to Zend Framework, it affects everyone who doesn't have access to apache configuration and wants to have document root in a deeper directory. Maybe I just can't google very well.</p>
+<p>Imagine a shared host. You can't choose your document root, it's firmly set to one particular directory. Now you want to install <a href="http://framework.zend.com/">Zend Framework</a>. Imagine you'd like to follow the standard directory structure (that means you more or less have these directories in your project: application (the application), library (zend and other libraries) and public (stuff accessible from the outside, images, css etc.)). Normally, you'd want to point your document root to the public directory, but when you can't do that you can use .htaccess in the project directory to redirect everything to public.</p>
+<p><code lang="apache">RewriteEngine On<br />
+RewriteRule !\.(js|gif|jpg|png|css|txt)$ public/index.php [L]<br />
+RewriteRule ^(.*)$ public/$1 [L]</code></p>
+<p>This was the first thing I wrote, and it works on <strong>certain</strong> servers. Other servers will kindly remind you that <em>"Request exceeded the limit of 10 internal redirects due to probable configuration error."</em> Which kind of makes sense when you think about it. Makes me wonder how comes the above code actually worked on two different configurations.</p>
+<p>Now here's the code that works (and in my humble opinion it also <strong>should</strong> work, as opposed to the one above):</p>
+<p><code lang="apache">RewriteEngine On<br />
+RewriteRule !\.(js|gif|jpg|png|css|txt)$ public/index.php [L]<br />
+RewriteCond %{REQUEST_URI} !^/public/<br />
+RewriteRule ^(.*)$ public/$1 [L]</code></p>
+<p>And finally a disclaimer: I am not sure about the security implications. If someone knows more about possible security issues with this, please do leave a comment.</p>
