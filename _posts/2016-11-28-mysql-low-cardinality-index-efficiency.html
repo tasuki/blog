@@ -90,7 +90,7 @@ root@localhost test > select count(*) from users where active = true;
 +----------+
 1 row in set (0.24 sec)
 </code></pre>
-<p>Wow, a lot slower... I've ran the selects a couple of times with consistent results to verify no caching was influencing the results. Let's see the explain:</p>
+<p>Wow, a lot slower… I've ran the selects a couple of times with consistent results to verify no caching was influencing the results. Let's see the explain:</p>
 <pre><code>root@localhost test > explain select count(*) from users where active = true\G
 *************************** 1. row ***************************
            id: 1
