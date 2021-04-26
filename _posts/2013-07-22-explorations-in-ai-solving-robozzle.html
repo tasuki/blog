@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Explorations in AI - solving RoboZZle
+title: Explorations in AI – solving RoboZZle
 categories:
 - games
 - programming
@@ -32,14 +32,14 @@ comments:
 <p>I decided not to cross-breed programs at all, as it doesn't feel like it would be helpful.</p>
 <p>Surprisingly, keeping a set of all evaluated programs doesn't eat all the memory (and prevents recalculating the same thing over and over, speeding up execution by an order of magnitude). Yay for sets of tuples!</p>
 <h3>Results</h3>
-<p>Zlej Rob has <a href="http://robozzle.com/user.aspx?name=zlejrob">solved over a 1000 puzzles</a> in a couple of weeks of running on my $5/mo <a href="https://www.digitalocean.com/?refcode=145c195a4635">DigitalOcean</a> (that's a referral link - sign up and I'll get rich) droplet alongside this blog and a couple other things.</p>
+<p>Zlej Rob has <a href="http://robozzle.com/user.aspx?name=zlejrob">solved over a 1000 puzzles</a> in a couple of weeks of running on my $5/mo <a href="https://www.digitalocean.com/?refcode=145c195a4635">DigitalOcean</a> (that's a referral link – sign up and I'll get rich) droplet alongside this blog and a couple other things.</p>
 <p>Zlej Rob's good at solving <a href="http://robozzle.com/js/play.aspx?puzzle=3900">one-way street</a> <a href="http://robozzle.com/js/play.aspx?puzzle=1691">puzzles</a> <a href="http://robozzle.com/js/play.aspx?puzzle=913">with</a> <a href="http://robozzle.com/js/play.aspx?puzzle=981">one function</a>, bad at anything involving <a href="http://robozzle.com/js/play.aspx?puzzle=39">multiple functions</a>, mediocre at multiple-possibilities puzzles, and passable at <a href="http://robozzle.com/js/play.aspx?puzzle=3281">random walks</a>.</p>
-<p>Zlej Rob discovered the shortest solution for <a href="http://robozzle.com/puzzle.aspx?id=1758">Twins 2</a> (which I improved by removing a redundant function call). I think that's pretty impressive. The solution includes <strong>a lot of</strong> recursive calls, and the replay takes ages - the robot loops and loops, seemingly never getting very far.</p>
+<p>Zlej Rob discovered the shortest solution for <a href="http://robozzle.com/puzzle.aspx?id=1758">Twins 2</a> (which I improved by removing a redundant function call). I think that's pretty impressive. The solution includes <strong>a lot of</strong> recursive calls, and the replay takes ages – the robot loops and loops, seemingly never getting very far.</p>
 <h3>Ideas for improvement</h3>
 <ol>
 <li>Visualisation. Would help identifying why certain things work and others don't. I've almost started writing an Angular app to do that.</li>
 <li>Smarter mutations. Mutations should include <em>abstracting random instruction subchains</em> into other functions (this could be very useful for multifunction problems where Zlej Rob usually fails terribly because it can't connect the dots). It might also be better to <em>insert</em> instructions instead of <em>replacing</em> them.</li>
-<li>Program diversity ("similarity penalty"). Surviving population for each generation is around 100 programs (toyed with higher values with no positive results - if anything, having 1000 programs is terribly slow), and they can all easily end up being very similar, getting stuck in local minima.</li>
+<li>Program diversity ("similarity penalty"). Surviving population for each generation is around 100 programs (toyed with higher values with no positive results – if anything, having 1000 programs is terribly slow), and they can all easily end up being very similar, getting stuck in local minima.</li>
 <li>Higher score programs should have more offsprings. Could speed up certain puzzles but perhaps make less obvious solutions unatainable. Would need to ensure program diversity first.</li>
 <li>Hints. For puzzles with an "obvious" order in which squares must be visited (such as <a href="http://www.robozzle.com/js/play.aspx?puzzle=213">binary counting</a> or <a href="http://www.robozzle.com/js/play.aspx?puzzle=656">limit your stack</a>), mandate this order. Currently, Zlej Rob finds random solutions that sweep vast majority of the board in a haphazard manner. Forcing the order in which squares must be visited would be extremely helpful, but likely requires human participation. Perhaps that'd be cheating?</li>
 </ol>
