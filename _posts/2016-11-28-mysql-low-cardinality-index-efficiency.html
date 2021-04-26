@@ -7,8 +7,7 @@ comments: []
 ---
 <p>I've heard the opinion that indexes on low cardinality columns don't work well. I set out to disprove that.</p>
 <p>First, let's create a table with a boolean column <em>"active"</em> and fill it with dummy data. Please note it includes a (default, B-Tree) index on the <em>"active"</em> column.</p>
-<pre><code>
-root@localhost test > show create table users\G
+<pre><code>root@localhost test > show create table users\G
 *************************** 1. row ***************************
 Table: users
 Create Table: CREATE TABLE `users` (
@@ -53,8 +52,7 @@ root@localhost test > select count(*) from users;
 </code></pre>
 <p>We've inserted a million users into our table! That took some time. Please note the 0.18 seconds to count them all.</p>
 <p>Now, let's see how fast we can count the active users:</p>
-<pre><code>
-root@localhost test > select count(*) from users where active = true;
+<pre><code>root@localhost test > select count(*) from users where active = true;
 +----------+
 | count(*) |
 +----------+
@@ -80,8 +78,8 @@ possible_keys: active
 1 row in set, 1 warning (0.00 sec)
 </code></pre>
 <p>Now let's drop the index and run the test again:</p>
-<pre><code>
-root@localhost test > alter table users drop key active;                                                                                                                                       Query OK, 0 rows affected (0.05 sec)
+<pre><code>root@localhost test > alter table users drop key active;
+Query OK, 0 rows affected (0.05 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
 root@localhost test > select count(*) from users where active = true;
@@ -93,8 +91,7 @@ root@localhost test > select count(*) from users where active = true;
 1 row in set (0.24 sec)
 </code></pre>
 <p>Wow, a lot slower... I've ran the selects a couple of times with consistent results to verify no caching was influencing the results. Let's see the explain:</p>
-<pre><code>
-root@localhost test > explain select count(*) from users where active = true\G
+<pre><code>root@localhost test > explain select count(*) from users where active = true\G
 *************************** 1. row ***************************
            id: 1
   select_type: SIMPLE

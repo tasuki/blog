@@ -22,11 +22,11 @@ Optionally also, Reveal location: Top Left Corner, and set sensitivity to someth
 <p><strong>Sensible Alt+F2:</strong><br />
 First, <a href="apt:gmrun">install gmrun</a>, a quick and small program launcher with tab completion.<br />
 Second, unbind Alt+F2 from Unity:<br />
-<code>
-<pre>gconftool-2 \
+<pre>
+gconftool-2 \
 -s "/apps/compiz-1/plugins/unityshell/screen0/options/execute_command" \
--t string ""</pre>
-<p></code><br />
+-t string ""
+</pre><br />
 Third, bind Alt+F2 to gmrun:<br />
 ccsm: Commands: add command "gmrun", key bindings bind to Alt+F2</p>
 <p><strong>Default four desktops aren't bourgeoise enough, get more:</strong><br />
