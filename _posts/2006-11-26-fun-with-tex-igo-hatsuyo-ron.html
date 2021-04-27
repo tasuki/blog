@@ -14,13 +14,13 @@ comments:
   content: "Já zase nedávno dělal z wordovskýho dokumentu HTML. Samozřejmě za peníze,
     jinak bych do toho nešel. Uložil jsem to v Abiwordu jako HTML (exportuje líp než
     OO) a pak na to aplikoval následující skript clean.sed. Pak už to bylo skoro čistý
-    HTML, jenom bylo potřeba přidat nadpisy, upravit odkazy atd. Hrůza.\r\n\r\n<code>\r\ns/\\&nbsp;/
-    /g\r\ns/[ \\t]\\+/ /g\r\n\r\ns/]*&gt;//g\r\n\r\ns/]*&gt;//g\r\n\r\ns/xml:lang=\\\"[^\\\"]*\\\"//g\r\ns/lang=\\\"[^\\\"]*\\\"//g\r\ns/id=\\\"[^\\\"]*\\\"//g\r\n\r\ns/font-size:[0-9]\\+pt;\\?//g\r\ns/font-family:[^\\\";]*;\\?//g\r\ns/color:[^\\\";]*;\\?//g\r\ns/text-decoration:underline;\\?//g\r\ns/class=\\\"footnote_reference\\\"//g\r\n\r\ns/style=\\\"\\\"//g\r\n\r\ns/
-    \\+&gt;/&gt;/g\r\n\r\n:top\r\n\r\ns/\\([^/\\1/g\r\nt top\r\n\r\ns/\\([^/<b>\\1/g\r\nt
-    top\r\n\r\ns/\\([^/<i>\\1/g\r\nt top\r\n\r\ns/\\([^/<b><i>\\1/g\r\nt top\r\n\r\ns/\\([^/\\1/g\r\nt
-    top\r\n\r\ns/\\(<a>]*&gt;[^\\)/\\1/g\r\n\r\ns/href=\\\"\\#footnote_ref-\\([0-9]*\\)\\\"/name=\\\"footnote_anchor-\\1\\\"/g\r\n\r\ns/„/\\&bdquo;/g\r\ns/“/\\&ldquo;/g\r\n\r\n:
-    t2\r\n\r\ns/\\(\\&bdquo;\\)\\(]*&gt;\\)/\\2\\1/g\r\nt t2\r\ns/\\(]*&gt;\\)\\(\\&ldquo;\\)/\\2\\1/g\r\nt
-    t2\r\n</code>"
+    HTML, jenom bylo potřeba přidat nadpisy, upravit odkazy atd. Hrůza.\n\n<code>\ns/\\&nbsp;/
+    /g\ns/[ \\t]\\+/ /g\n\ns/]*&gt;//g\n\ns/]*&gt;//g\n\ns/xml:lang=\\\"[^\\\"]*\\\"//g\ns/lang=\\\"[^\\\"]*\\\"//g\ns/id=\\\"[^\\\"]*\\\"//g\n\ns/font-size:[0-9]\\+pt;\\?//g\ns/font-family:[^\\\";]*;\\?//g\ns/color:[^\\\";]*;\\?//g\ns/text-decoration:underline;\\?//g\ns/class=\\\"footnote_reference\\\"//g\n\ns/style=\\\"\\\"//g\n\ns/
+    \\+&gt;/&gt;/g\n\n:top\n\ns/\\([^/\\1/g\nt top\n\ns/\\([^/<b>\\1/g\nt
+    top\n\ns/\\([^/<i>\\1/g\nt top\n\ns/\\([^/<b><i>\\1/g\nt top\n\ns/\\([^/\\1/g\nt
+    top\n\ns/\\(<a>]*&gt;[^\\)/\\1/g\n\ns/href=\\\"\\#footnote_ref-\\([0-9]*\\)\\\"/name=\\\"footnote_anchor-\\1\\\"/g\n\ns/„/\\&bdquo;/g\ns/“/\\&ldquo;/g\n\n:
+    t2\n\ns/\\(\\&bdquo;\\)\\(]*&gt;\\)/\\2\\1/g\nt t2\ns/\\(]*&gt;\\)\\(\\&ldquo;\\)/\\2\\1/g\nt
+    t2\n</code>"
 - id: 25161
   author: Keo
   author_email: ''
@@ -49,7 +49,7 @@ comments:
   author_url: ''
   date: '2006-12-24 08:48:58 +0000'
   date_gmt: '2006-12-24 07:48:58 +0000'
-  content: "Sorry, but can you write down your reply in English please? Thanks. \r\n
+  content: "Sorry, but can you write down your reply in English please? Thanks. \n
     :x"
 ---
 <p>It all started by me stumbling upon a text file containing all <a  href="http://www.xys.org/xys/ebooks/others/misc/fayanglun.txt">Igo Hatsuyo-ron problems</a>. Well, as you can see the format is not so great and encoding is obscure (GB2312). I used vim to transfer this garbage into something reasonable.</p>
@@ -61,7 +61,7 @@ comments:
 no empty lines…<br />
 :%s/^\n//g<br />
 add some tex code before and after each diagram<br />
-:%s/┏/}\r\\hfil\\break\r}\r\r\\bigskip\r\r\\vbox{\\vbox to 100 pt{\\hsize= 190 pt\\goo\r┏/g<br />
+:%s/┏/}\\hfil\\break}\\bigskip\\vbox{\\vbox to 100 pt{\\hsize= 190 pt\\goo┏/g<br />
 transfer the ascii goban into tex<br />
 :%s/┏/\\0??<<br />
 :%s/┯/\\0??(/g<br />
