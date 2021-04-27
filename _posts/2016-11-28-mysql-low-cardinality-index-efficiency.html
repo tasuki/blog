@@ -5,8 +5,12 @@ categories:
 - computers
 comments: []
 ---
-<p>I've heard the opinion that indexes on low cardinality columns don't work well. I set out to disprove that.</p>
-<p>First, let's create a table with a boolean column <em>"active"</em> and fill it with dummy data. Please note it includes a (default, B-Tree) index on the <em>"active"</em> column.</p>
+<p>
+I’ve heard the opinion that indexes on low cardinality columns don’t work well. I set out to disprove that.
+</p>
+<p>
+First, let’s create a table with a boolean column <em>“active”</em> and fill it with dummy data. Please note it includes a (default, B-Tree) index on the <em>“active”</em> column.
+</p>
 <pre><code>root@localhost test > show create table users\G
 *************************** 1. row ***************************
 Table: users
@@ -50,8 +54,12 @@ root@localhost test > select count(*) from users;
 +----------+
 1 row in set (0.18 sec)
 </code></pre>
-<p>We've inserted a million users into our table! That took some time. Please note the 0.18 seconds to count them all.</p>
-<p>Now, let's see how fast we can count the active users:</p>
+<p>
+We’ve inserted a million users into our table! That took some time. Please note the 0.18 seconds to count them all.
+</p>
+<p>
+Now, let’s see how fast we can count the active users:
+</p>
 <pre><code>root@localhost test > select count(*) from users where active = true;
 +----------+
 | count(*) |
@@ -60,7 +68,9 @@ root@localhost test > select count(*) from users;
 +----------+
 1 row in set (0.04 sec)
 </code></pre>
-<p>Cool, pretty fast. Can you explain that?</p>
+<p>
+Cool, pretty fast. Can you explain that?
+</p>
 <pre><code>root@localhost test > explain select count(*) from users where active = true\G
 *************************** 1. row ***************************
            id: 1
@@ -77,7 +87,9 @@ possible_keys: active
         Extra: Using index
 1 row in set, 1 warning (0.00 sec)
 </code></pre>
-<p>Now let's drop the index and run the test again:</p>
+<p>
+Now let’s drop the index and run the test again:
+</p>
 <pre><code>root@localhost test > alter table users drop key active;
 Query OK, 0 rows affected (0.05 sec)
 Records: 0  Duplicates: 0  Warnings: 0
@@ -90,7 +102,9 @@ root@localhost test > select count(*) from users where active = true;
 +----------+
 1 row in set (0.24 sec)
 </code></pre>
-<p>Wow, a lot slower… I've ran the selects a couple of times with consistent results to verify no caching was influencing the results. Let's see the explain:</p>
+<p>
+Wow, a lot slower… I’ve ran the selects a couple of times with consistent results to verify no caching was influencing the results. Let’s see the explain:
+</p>
 <pre><code>root@localhost test > explain select count(*) from users where active = true\G
 *************************** 1. row ***************************
            id: 1
@@ -107,6 +121,12 @@ possible_keys: NULL
         Extra: Using where
 1 row in set, 1 warning (0.00 sec)
 </code></pre>
-<p>As you hopefully know: <em>"Using index"</em> good, <em>"Using where"</em> bad.</p>
-<p><strong>TL;DR A boolean column consisting of 10% TRUE and 90% FALSE queried for TRUE values using an index takes 0.04 sec, while not using an index takes 0.24 sec. The index speeds up the query by about a factor of six.</strong></p>
-<p>I've repeated the test with worse case scenario of a binary column split 50/50. 50% true, 50% false. The numbers are a bit less consistent, but generally around 0.16 for the indexed version and 0.24 for the unindexed version. <em>Go indexes!</em></p>
+<p>
+As you hopefully know: <em>“Using index”</em> good, <em>“Using where”</em> bad.
+</p>
+<p>
+<strong>TL;DR A boolean column consisting of 10% TRUE and 90% FALSE queried for TRUE values using an index takes 0.04 sec, while not using an index takes 0.24 sec. The index speeds up the query by about a factor of six.</strong>
+</p>
+<p>
+I’ve repeated the test with worse case scenario of a binary column split 50/50. 50% true, 50% false. The numbers are a bit less consistent, but generally around 0.16 for the indexed version and 0.24 for the unindexed version. <em>Go indexes!</em>
+</p>

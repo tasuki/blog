@@ -15,16 +15,38 @@ comments:
     in string.split(',')]\nor this also works \nmap(str.strip, string.split(','))\nDoesn't
     seem cryptic to me."
 ---
-<p>This is gonna be rambling personal experience. You have been warned.</p>
-<p>A year ago I took a break from my work at <a href="https://inviqa.com/">Inviqa</a> to learn Scala and functional programming. This has been a great decision, a most successful endeavour, and an amazing learning experience.</p>
-<p>I've been stuck with PHP for a long time. Mind, at Inviqa we were doing as good PHP as one can. I learned lots about software engineering from a multitude of conference speakers and industry leaders. This was further helped by a very active learning &amp; development department and a generous conference/learning budget. Still, it was PHP. The language sucks.</p>
-<p>Learning Scala as a "better Java" kind of language was easy. Case classes, options, lots of easy wins. Learning functional programming… well, I've been reading the awesome <a href="https://www.manning.com/books/functional-programming-in-scala">Functional Programming in Scala</a> book, and I'm still reading it one year later. Despite its hands-on approach and lots of hand-holding, it's not easy for me to digest. Functional programming is hard.</p>
-<p>I used to really like Python. I wrote about 50 lines of Python recently, and just couldn't believe how difficult it was. One needs to explicitly write <tt>return</tt> to return values. When just trying things out, you don't get quick feedback from the compiler. Either write tests or <em>run your code</em> – the former seemed like overdoing it for such a short program, the latter was tedious. Working with the collections was a pain.</p>
-<p>Let's have a look at an example. What we want to do: <strong>split a string on commas, then strip whitespace from each element</strong>.</p>
-<p>In Python:<br />
-<tt><code>map(lambda i: i.strip(), re.split(',', string))</code></tt></p>
-<p>In Scala:<br />
-<tt><code>string.split(",").map(_.trim)</code></tt></p>
-<p>The relative conciseness of Scala is nice, sure, but the Scala code basically follows the instructions: take a string, split on a comma, trim whitespace. Python is completely cryptic in comparison.</p>
-<p>The main drawback of Scala is not the language but the ecosystem. SBT (Scala Build Tool) is powerful but often times incomprehensible. The compilation can be slow at times. Scala's Play Framework is not nearly as polished as PHP's Symfony. Replacing any piece of Symfony is just a dependency injection away. Replacing a component of Play is bordering on impossible, everything depends on everything and is mostly hardcoded. I wanted to do a really simple one-line change in Play Framework routing but had to give up.</p>
-<p>Inviqa didn't have as much interest in Scala as I hoped, so regrettably, I stopped working for them. Now I'm part of <a href="http://www.kwiqjobs.com/">KwiqJobs</a> (soon to be Swarms Technologies), an amazing startup. We turn people's waiting time into a new resource for companies. Our tech team works remotely and we meet about once a month for a week. It's lots of fun! Also we're hiring! :)</p>
+<p>
+This is gonna be rambling personal experience. You have been warned.
+</p>
+<p>
+A year ago I took a break from my work at <a href="https://inviqa.com/">Inviqa</a> to learn Scala and functional programming. This has been a great decision, a most successful endeavour, and an amazing learning experience.
+</p>
+<p>
+I’ve been stuck with PHP for a long time. Mind, at Inviqa we were doing as good PHP as one can. I learned lots about software engineering from a multitude of conference speakers and industry leaders. This was further helped by a very active learning &amp; development department and a generous conference/learning budget. Still, it was PHP. The language sucks.
+</p>
+<p>
+Learning Scala as a “better Java” kind of language was easy. Case classes, options, lots of easy wins. Learning functional programming… well, I’ve been reading the awesome <a href="https://www.manning.com/books/functional-programming-in-scala">Functional Programming in Scala</a> book, and I’m still reading it one year later. Despite its hands-on approach and lots of hand-holding, it’s not easy for me to digest. Functional programming is hard.
+</p>
+<p>
+I used to really like Python. I wrote about 50 lines of Python recently, and just couldn’t believe how difficult it was. One needs to explicitly write <tt>return</tt> to return values. When just trying things out, you don’t get quick feedback from the compiler. Either write tests or <em>run your code</em> – the former seemed like overdoing it for such a short program, the latter was tedious. Working with the collections was a pain.
+</p>
+<p>
+Let’s have a look at an example. What we want to do: <strong>split a string on commas, then strip whitespace from each element</strong>.
+</p>
+<p>
+In Python:<br />
+<tt><code>map(lambda i: i.strip(), re.split(‘,’, string))</code></tt>
+</p>
+<p>
+In Scala:<br />
+<tt><code>string.split(“,”).map(_.trim)</code></tt>
+</p>
+<p>
+The relative conciseness of Scala is nice, sure, but the Scala code basically follows the instructions: take a string, split on a comma, trim whitespace. Python is completely cryptic in comparison.
+</p>
+<p>
+The main drawback of Scala is not the language but the ecosystem. SBT (Scala Build Tool) is powerful but often times incomprehensible. The compilation can be slow at times. Scala’s Play Framework is not nearly as polished as PHP’s Symfony. Replacing any piece of Symfony is just a dependency injection away. Replacing a component of Play is bordering on impossible, everything depends on everything and is mostly hardcoded. I wanted to do a really simple one-line change in Play Framework routing but had to give up.
+</p>
+<p>
+Inviqa didn’t have as much interest in Scala as I hoped, so regrettably, I stopped working for them. Now I’m part of <a href="http://www.kwiqjobs.com/">KwiqJobs</a> (soon to be Swarms Technologies), an amazing startup. We turn people’s waiting time into a new resource for companies. Our tech team works remotely and we meet about once a month for a week. It’s lots of fun! Also we’re hiring! :)
+</p>

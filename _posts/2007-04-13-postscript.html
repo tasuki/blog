@@ -19,17 +19,45 @@ comments:
     v "Javě" podobně úchylným způsobem, jaký jsi popsal v článku. Výhodou těchto jazyků
     je totiž naprostá primitivnost parsování – žádné priority operátorů a tak.
 ---
-<p>I want to have some real Hex and TwixT boards, so I've been playing around with PostScript a bit.</p>
-<p>I found <a  href="http://doolittle.icarus.com/~larry/hex/">Larry Doolittle's Hex board</a> and started editing it without knowing almost anything about PostScript. The results were – you guessed it – disastrous. PostScript is not really intuitive language (for me, at least). But then I found a <a  href="http://www.tailrecursive.org/postscript/postscript.html">great PostScript tutorial</a>, which helped me immensely.</p>
-<p>First I edited Larry's Hex board – I added black outline to two opposite sides (for the sides not to get confused), and scaled and rotated the 13x13 board (which is littlegolem standard, therefore defacto universal standard) so that it's playable with normal sized go stones and fits on A3 sized paper (I am very happy that it fits). You can download my <a  href="http://www.tasuki.org/hex13.ps">13x13 hex board on A3 for use with go stones</a>.</p>
-<p>The next thing I needed was a TwixT board. This time I only found a pdf, which was exactly not what I wanted. So, with a lot more help of the PostScript tutorial mentioned earlier, I created a PostScript <a  href="http://www.tasuki.org/twixt.ps">TwixT board</a>.</p>
-<p>I made it to be highly customizable, you can find parameters on lines 10 to 21. You can easily change size of the board (the number of holes), the space between holes, holesize, color of holes, filling of holes, color of the guiding lines (or whatever they are called, you know, those lines that help you choose the right move ;-)), width and color of the border, basic line width, and finally horizontal and vertical offset. I sincerely think all those settings could be quite useful to anyone who wants to print a customized TwixT board.</p>
-<p>I agree that the code is not really great (I stay true to the "it was difficult to write, so it should be difficult to read" principle), but it works and I think that's what counts.</p>
-<p>Here is a short example of PostScript language:</p>
-<blockquote><p>1 step mul dup moveto<br />
-boardsize 2 div 1 sub step mul bs 2 sub step mul lineto stroke</p></blockquote>
-<p>Which means, rewritten to human language:</p>
-<blockquote><p>move_to(1*step, 1*step);<br />
-draw_line_to((boardsize/2 – 1)*step, (bs – 2)*step);</p></blockquote>
-<p>In PostScript, everything is based on LIFO (last in first out) stacks, so when you want to do 3+4, you have to write 3 4 add (3 and 4 are put into the stack and the function "add" takes two values from the top of the stack and returns their sum back on the top).</p>
-<p>I could show a lot of other PostScript examples but I think it's better for you to <a  href="http://www.tasuki.org/twixt.ps">have a look at the code </a>yourself (it's heavily uncommented, I didn't want to take the fun out of it).</p>
+<p>
+I want to have some real Hex and TwixT boards, so I’ve been playing around with PostScript a bit.
+</p>
+<p>
+I found <a  href="http://doolittle.icarus.com/~larry/hex/">Larry Doolittle’s Hex board</a> and started editing it without knowing almost anything about PostScript. The results were – you guessed it – disastrous. PostScript is not really intuitive language (for me, at least). But then I found a <a  href="http://www.tailrecursive.org/postscript/postscript.html">great PostScript tutorial</a>, which helped me immensely.
+</p>
+<p>
+First I edited Larry’s Hex board – I added black outline to two opposite sides (for the sides not to get confused), and scaled and rotated the 13x13 board (which is littlegolem standard, therefore defacto universal standard) so that it’s playable with normal sized go stones and fits on A3 sized paper (I am very happy that it fits). You can download my <a  href="http://www.tasuki.org/hex13.ps">13x13 hex board on A3 for use with go stones</a>.
+</p>
+<p>
+The next thing I needed was a TwixT board. This time I only found a pdf, which was exactly not what I wanted. So, with a lot more help of the PostScript tutorial mentioned earlier, I created a PostScript <a  href="http://www.tasuki.org/twixt.ps">TwixT board</a>.
+</p>
+<p>
+I made it to be highly customizable, you can find parameters on lines 10 to 21. You can easily change size of the board (the number of holes), the space between holes, holesize, color of holes, filling of holes, color of the guiding lines (or whatever they are called, you know, those lines that help you choose the right move ;-)), width and color of the border, basic line width, and finally horizontal and vertical offset. I sincerely think all those settings could be quite useful to anyone who wants to print a customized TwixT board.
+</p>
+<p>
+I agree that the code is not really great (I stay true to the “it was difficult to write, so it should be difficult to read” principle), but it works and I think that’s what counts.
+</p>
+<p>
+Here is a short example of PostScript language:
+</p>
+<blockquote>
+<p>
+1 step mul dup moveto<br />
+boardsize 2 div 1 sub step mul bs 2 sub step mul lineto stroke
+</p>
+</blockquote>
+<p>
+Which means, rewritten to human language:
+</p>
+<blockquote>
+<p>
+move_to(1<em>step, 1</em>step);<br />
+draw_line_to((boardsize/2 – 1)<em>step, (bs – 2)</em>step);
+</p>
+</blockquote>
+<p>
+In PostScript, everything is based on LIFO (last in first out) stacks, so when you want to do 3+4, you have to write 3 4 add (3 and 4 are put into the stack and the function “add” takes two values from the top of the stack and returns their sum back on the top).
+</p>
+<p>
+I could show a lot of other PostScript examples but I think it’s better for you to <a  href="http://www.tasuki.org/twixt.ps">have a look at the code </a>yourself (it’s heavily uncommented, I didn’t want to take the fun out of it).
+</p>
