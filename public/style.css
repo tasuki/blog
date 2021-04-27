@@ -2,6 +2,14 @@ html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
   font-family: "IBM Plex Sans", sans-serif;
 }
 
+#header, #content h1, #content h3 {
+  font-family: "Eczar", serif;
+  line-height: 1;
+}
+#header, #content h1 {
+  font-weight: normal;
+}
+
 body {
   color: #141412;
 }
@@ -9,23 +17,19 @@ body {
 .pad {
   margin: auto;
   max-width: 600px;
-}
-
-#header, #content h1 {
-  font-family: "Eczar", serif;
+  padding: 0 10px;
 }
 
 /* header */
 #header {
   background-color: #CA3C08;
-  font-size: 90px;
-  line-height: 120px;
+  font-size: 40px;
+  line-height: 1.3;
+  letter-spacing: -1px;
 }
 
 #header a {
   color: #FFF;
-  font-weight: normal;
-  letter-spacing: -2px;
   text-decoration: none;
   text-shadow: 1px 1px 1px #000;
 }
@@ -38,16 +42,13 @@ body {
 /* content */
 #content {
   font-size: 18px;
-  line-height: 24px;
-  padding: 0px 10px 10px 10px;
+  line-height: 1.5;
 }
 
-#content h1 {
-  font-size: 40px;
-  font-weight: normal;
-  line-height: 40px;
-  margin: 40px 0 0 0;
-}
+#content article { margin: 1em 0 5em 0; }
+
+#content h1 { font-size: 26px; margin: .5em 0 0 0; }
+#content h3 { font-size: 22px; margin: 1.5em 0 0 0; }
 
 #content a { text-decoration: none; }
 #content a:hover { text-decoration: underline; }
@@ -58,10 +59,11 @@ body {
 #content .meta {
   font-style: italic;
   font-size: 14px;
-  margin: 10px 0 0 0;
 }
 
 #content a { color: #CA3C08; }
+
+#content ul { list-style-type: '–  '; }
 
 #content code { padding: 0 .5em; }
 #content pre { padding: 1em; }
@@ -71,30 +73,29 @@ body {
   font-size: 16px;
 }
 
-#content table { font-size: 16px; line-height: 30px; width: 100%; }
-#content tr { border-bottom: 1px solid #EDEDED; border-collapse: collapse; }
+#content table { font-size: 16px; margin: auto; }
+#content tr { border-bottom: 1px solid #EDEDED; }
 #content th { text-align: left; }
+#content th, td { padding: 5px 10px; }
 
-#content blockquote { border-left: 7px solid #EDEDED; margin: 15px; padding-left: 7px; }
+#content blockquote {
+  border-left: 7px solid #EDEDED;
+  margin: 15px;
+  padding-left: 15px;
+}
 
 #content img { width: 100%; }
 
-/* super tiny */
-@media screen and (min-width: 20em) {
-}
+#pagination { font-weight: bold; margin: 20px 0; }
+#pagination .older { text-align: left; }
+#pagination .page-number { text-align: center; }
+#pagination .newer { text-align: right; }
 
-/* tiny mobile device */
-@media screen and (min-width: 25em) {
-}
-
-/* sm: larger device */
 @media screen and (min-width: 35.5em) {
-}
+  #header {
+    font-size: 70px;
+  }
 
-/* md: large device */
-@media screen and (min-width: 48em) {
-}
-
-/* lg: largest device */
-@media screen and (min-width: 64em) {
+  #content h1 { font-size: 40px; }
+  #content h3 { font-size: 27px; }
 }
