@@ -14,6 +14,15 @@
   </div>
 
   {% if single %}
+  <div class="post-nav">
+    {% if page.previous.url %}
+    <a href="{{page.previous.url}}" class="post-nav-prev">&larr;&nbsp;{{page.previous.title}}</a>
+    {% endif %}
+    {% if page.next.url %}
+    <a href="{{page.next.url}}" class="post-nav-next">{{page.next.title}}&nbsp;&rarr;</a>
+    {% endif %}
+  </div>
+
   <div class="comments">
     {% if post.comments.size %}
       <div class="thoughts">{{ post.comments.size }} thoughts on &ldquo;{{ post.title }}&rdquo;</div>

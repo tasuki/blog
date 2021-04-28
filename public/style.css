@@ -87,7 +87,9 @@ body {
 
 #content img { width: 100%; }
 
-#content .comments { margin: 4em 0; }
+#content .post-nav { font-style: italic; margin: 3em -10px; }
+#content .post-nav .post-nav-next { float: right; text-align: right; }
+
 #content .comments .thoughts { font-size: 22px; font-style: italic; }
 #content .comments .author { font-weight: bold; margin-right: .5em; }
 #content .comments .comment { margin: 2em 0;}
@@ -103,6 +105,7 @@ body {
   #content h1 { font-size: 40px; }
   #content h3 { font-size: 27px; }
 
-  .pad { padding: 0 40px; }
-  #content pre { margin: 0 -40px; }
+  .pad { padding: 0 60px; }
+  #content pre { margin-left: -40px; margin-right: -40px; }
+  #content .post-nav { margin-left: -60px; margin-right: -60px; }
 }
