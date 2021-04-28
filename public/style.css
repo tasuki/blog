@@ -65,8 +65,9 @@ body {
 
 #content ul { list-style-type: '–  '; }
 
-#content code { padding: 0 .5em; }
-#content pre { padding: 1em; }
+#content code { padding: 0 .3em; }
+#content pre { padding: .5em 1em; margin: 0 -10px; }
+#content pre code { padding: 0; }
 #content code, #content pre {
   background-color: #F5F5F5;
   font-family: "IBM Plex Mono";
@@ -98,4 +99,7 @@ body {
 
   #content h1 { font-size: 40px; }
   #content h3 { font-size: 27px; }
+
+  .pad { padding: 0 40px; }
+  #content pre { margin: 0 -40px; }
 }
