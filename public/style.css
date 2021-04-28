@@ -56,7 +56,7 @@ body {
 #content h1 a { color: #000; }
 #content h1 a:hover { color: #CA3C08; }
 
-#content .meta {
+#content .date {
   font-style: italic;
   font-size: 14px;
 }
@@ -87,16 +87,19 @@ body {
 
 #content img { width: 100%; }
 
+#content .comments { margin: 4em 0; }
+#content .comments .thoughts { font-size: 22px; font-style: italic; }
+#content .comments .author { font-weight: bold; margin-right: .5em; }
+#content .comments .comment { margin: 2em 0;}
+#content .comments p { margin: .5em 0;}
+
 #pagination { font-weight: bold; margin: 20px 0; }
 #pagination .older { text-align: left; }
 #pagination .page-number { text-align: center; }
 #pagination .newer { text-align: right; }
 
 @media screen and (min-width: 35.5em) {
-  #header {
-    font-size: 70px;
-  }
-
+  #header { font-size: 70px; }
   #content h1 { font-size: 40px; }
   #content h3 { font-size: 27px; }
 

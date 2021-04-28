@@ -12,5 +12,27 @@
   <div class="content">
     {{ post.content }}
   </div>
-</article>
 
+  {% if single %}
+  <div class="comments">
+    {% if post.comments.size %}
+      <div class="thoughts">{{ post.comments.size }} thoughts on &ldquo;{{ post.title }}&rdquo;</div>
+      {%- for comment in post.comments -%}
+        <div class="comment">
+          <p>
+            <span class="author">
+              {% if comment.author_url == "" %}
+              {{ comment.author }}
+              {% else %}
+              <a href="{{ comment.author_url }}">{{ comment.author }}</a>
+              {% endif %}
+            </span>
+            <span class="date">{{ comment.date | date: "%Y-%m-%d" }}</span>
+          </p>
+          <p>{{ comment.content }}</p>
+        </div>
+      {%- endfor -%}
+    {% endif %}
+  </div>
+  {% endif %}
+</article>
