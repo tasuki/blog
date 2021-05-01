@@ -4,6 +4,7 @@ layout: default
 
 {%- for post in paginator.posts -%}
   {% assign single = false %}
+  {% assign content = post.content %}
   {% include post-full.html %}
 {%- endfor -%}
 

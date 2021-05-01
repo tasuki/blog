@@ -64,6 +64,8 @@ body {
 #content a { color: #CA3C08; }
 
 #content ul { list-style-type: '–  '; }
+#content li pre { margin: 0; }
+#content li p { margin-top: 0; }
 
 #content code { padding: 0 .3em; }
 #content pre { padding: .5em 1em; margin: 0 -10px; }
@@ -86,6 +88,7 @@ body {
 }
 
 #content img { width: 100%; }
+embed, iframe, object, video { max-width: 100%; }
 
 #content .post-nav { font-style: italic; margin: 3em -10px; }
 #content .post-nav .post-nav-next { float: right; text-align: right; }

@@ -10,38 +10,46 @@
     <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
   </div>
   <div class="content">
-    {{ post.content }}
+    {{ content }}
   </div>
 
   {% if single %}
   <div class="post-nav">
-    {% if page.previous.url %}
-    <a href="{{page.previous.url}}" class="post-nav-prev">&larr;&nbsp;{{page.previous.title}}</a>
+    {% if post.previous.url %}
+    <a href="{{post.previous.url}}" class="post-nav-prev">&larr;&nbsp;{{post.previous.title}}</a>
     {% endif %}
-    {% if page.next.url %}
-    <a href="{{page.next.url}}" class="post-nav-next">{{page.next.title}}&nbsp;&rarr;</a>
+    {% if post.next.url %}
+    <a href="{{post.next.url}}" class="post-nav-next">{{post.next.title}}&nbsp;&rarr;</a>
     {% endif %}
   </div>
 
   <div class="comments">
-    {% if post.comments.size %}
-      <div class="thoughts">{{ post.comments.size }} thoughts on &ldquo;{{ post.title }}&rdquo;</div>
-      {%- for comment in post.comments -%}
-        <div class="comment">
-          <p>
-            <span class="author">
-              {% if comment.author_url == "" %}
-              {{ comment.author }}
-              {% else %}
-              <a href="{{ comment.author_url }}">{{ comment.author }}</a>
-              {% endif %}
-            </span>
-            <span class="date">{{ comment.date | date: "%Y-%m-%d" }}</span>
-          </p>
-          <p>{{ comment.content }}</p>
-        </div>
-      {%- endfor -%}
+    {% if post.comments.size > 1 %}
+      {% assign thoughts = post.comments.size | append: " thoughts" %}
+    {% elsif post.comments.size == 1 %}
+      {% assign thoughts = "One thought" %}
+    {% else %}
+      {% assign thoughts = "No thoughts" %}
     {% endif %}
+
+    <div class="thoughts">{{ thoughts }} on &ldquo;{{ post.title }}&rdquo;</div>
+    {%- for comment in post.comments -%}
+      <div class="comment">
+        <p>
+          <span class="author">
+            {% if comment.author_url == "" %}
+            {{ comment.author }}
+            {% else %}
+            <a href="{{ comment.author_url }}">{{ comment.author }}</a>
+            {% endif %}
+          </span>
+          <span class="date">{{ comment.date | date: "%Y-%m-%d" }}</span>
+        </p>
+        <p>{{ comment.content | markdownify }}</p>
+      </div>
+    {%- endfor -%}
+    <p><strong><a href="https://github.com/tasuki/blog/edit/master/{{ post.path }}">Add your comment</a></strong>
+       &mdash; <a href="/comment/">How does this work?</a></p>
   </div>
   {% endif %}
 </article>
