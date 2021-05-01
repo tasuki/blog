@@ -1,0 +1,158 @@
+---
+---
+
+$font-headers: "Eczar", serif
+$font-body: "IBM Plex Sans", sans-serif
+$font-mono: "IBM Plex Mono"
+
+$color-primary: #CA3C08
+$color-background: #FFF
+$color-text: #141412
+$color-code: #F5F5F5
+$color-gentle: #EDEDED
+
+html, button, input, select, textarea, .pure-g [class *= "pure-u"]
+  font-family: $font-body
+
+body
+  color: $color-text
+
+.pad
+  margin: auto
+  max-width: 600px
+  padding: 0 10px
+
+#header
+  background-color: $color-primary
+  font-family: $font-headers
+  font-size: 40px
+  font-weight: normal
+  line-height: 1.3
+  letter-spacing: -1px
+  a
+    color: $color-background
+    text-decoration: none
+    text-shadow: 1px 1px 1px $color-text
+    &:hover
+      color: $color-text
+      text-shadow: 1px 1px 1px $color-background
+
+#content
+  font-size: 18px
+  line-height: 1.5
+
+  article
+    margin: 1em 0 5em 0
+
+  .date
+    font-style: italic
+    font-size: 14px
+
+  h1, h3
+    font-family: $font-headers
+    line-height: 1
+  h1
+    font-weight: normal
+    font-size: 26px
+    margin: .5em 0 0 0
+    a
+      color: $color-text
+      &:hover
+        color: $color-primary
+  h3
+    font-size: 22px
+    margin: 1.5em 0 0 0
+
+  a
+    color: $color-primary
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+
+  ul
+    list-style-type: '–  '
+  li
+    p
+      margin-top: 0
+    pre
+      margin: 0
+
+  code, pre
+    background-color: $color-code
+    font-family: $font-mono
+    font-size: 16px
+  code
+    padding: 0 .3em
+  pre
+    padding: .5em 1em
+    margin: 0 -10px
+  pre code
+    padding: 0
+
+  table
+    font-size: 16px
+    margin: auto
+  tr
+    border-bottom: 1px solid $color-gentle
+  th
+    text-align: left
+  th, td
+    padding: 5px 10px
+
+  blockquote
+    border-left: 7px solid $color-gentle
+    margin: 15px
+    padding-left: 15px
+
+  img, embed, iframe, object, video
+    max-width: 100%
+
+  .post-nav
+    font-style: italic
+    margin: 3em -10px
+  .post-nav-next
+    float: right
+    text-align: right
+
+  .comments
+    .thoughts
+      font-size: 22px
+      font-style: italic
+    .author
+      font-weight: bold
+      margin-right: .5em
+    .comment
+      margin: 2em 0
+    p
+      margin: .5em 0
+
+  #pagination
+    font-weight: bold
+    margin: 20px 0
+  .older
+    text-align: left
+  .page-number
+    text-align: center
+  .newer
+    text-align: right
+
+@media screen and (min-width: 35.5em)
+  .pad
+    padding: 0 60px
+
+  #header
+    font-size: 70px
+
+  #content
+    h1
+      font-size: 40px
+    h3
+      font-size: 27px
+
+    pre
+      margin-left: -40px
+      margin-right: -40px
+
+    .post-nav
+      margin-left: -60px
+      margin-right: -60px
