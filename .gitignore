@@ -1,3 +1,4 @@
+.env
 .bundle/
 .jekyll-cache/
 _site/
