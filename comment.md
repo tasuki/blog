@@ -26,7 +26,7 @@ There are two ways to add comments, the lazy one and the hard one. The end resul
 
 Write the comment, and [send it to me](https://tasuki.org/) using email, Face book, Keybase, KGS, or any other thing I read.
 
-...and... tell me to publish it? If you don't do that, I [won't just randomly quote you](http://127.0.0.1:4000/high-poetry/) in a blog post!
+...and... tell me to publish it? If you don't do that, I [won't just randomly quote you](/high-poetry/) in a blog post!
 
 ### Comment the hard way
 
