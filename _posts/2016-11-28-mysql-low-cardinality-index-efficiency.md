@@ -5,13 +5,13 @@ categories:
 - computers
 comments: []
 ---
-<p>
+
 I’ve heard the opinion that indexes on low cardinality columns don’t work well. I set out to disprove that.
-</p>
-<p>
-First, let’s create a table with a boolean column <em>“active”</em> and fill it with dummy data. Please note it includes a (default, B-Tree) index on the <em>“active”</em> column.
-</p>
-<pre><code>> show create table users\G
+
+First, let’s create a table with a boolean column _“active”_ and fill it with dummy data. Please note it includes a (default, B-Tree) index on the _“active”_ column.
+
+```sql
+> show create table users\G
 *************************** 1. row ***************************
 Table: users
 Create Table: CREATE TABLE `users` (
@@ -53,25 +53,26 @@ Query OK, 1 row affected (36.60 sec)
 |  1000000 |
 +----------+
 1 row in set (0.18 sec)
-</code></pre>
-<p>
+```
+
 We’ve inserted a million users into our table! That took some time. Please note the 0.18 seconds to count them all.
-</p>
-<p>
+
 Now, let’s see how fast we can count the active users:
-</p>
-<pre><code>> select count(*) from users where active = true;
+
+```sql
+> select count(*) from users where active = true;
 +----------+
 | count(*) |
 +----------+
 |    99887 |
 +----------+
 1 row in set (0.04 sec)
-</code></pre>
-<p>
+```
+
 Cool, pretty fast. Can you explain that?
-</p>
-<pre><code>> explain select count(*) from users where active = true\G
+
+```sql
+> explain select count(*) from users where active = true\G
 *************************** 1. row ***************************
            id: 1
   select_type: SIMPLE
@@ -86,11 +87,12 @@ possible_keys: active
      filtered: 100.00
         Extra: Using index
 1 row in set, 1 warning (0.00 sec)
-</code></pre>
-<p>
+```
+
 Now let’s drop the index and run the test again:
-</p>
-<pre><code>> alter table users drop key active;
+
+```sql
+> alter table users drop key active;
 Query OK, 0 rows affected (0.05 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
@@ -101,11 +103,12 @@ Records: 0  Duplicates: 0  Warnings: 0
 |    99887 |
 +----------+
 1 row in set (0.24 sec)
-</code></pre>
-<p>
+```
+
 Wow, a lot slower… I’ve ran the selects a couple of times with consistent results to verify no caching was influencing the results. Let’s see the explain:
-</p>
-<pre><code>> explain select count(*) from users where active = true\G
+
+```sql
+> explain select count(*) from users where active = true\G
 *************************** 1. row ***************************
            id: 1
   select_type: SIMPLE
@@ -120,13 +123,10 @@ possible_keys: NULL
      filtered: 10.00
         Extra: Using where
 1 row in set, 1 warning (0.00 sec)
-</code></pre>
-<p>
-As you hopefully know: <em>“Using index”</em> good, <em>“Using where”</em> bad.
-</p>
-<p>
-<strong>TL;DR A boolean column consisting of 10% TRUE and 90% FALSE queried for TRUE values using an index takes 0.04 sec, while not using an index takes 0.24 sec. The index speeds up the query by about a factor of six.</strong>
-</p>
-<p>
-I’ve repeated the test with worse case scenario of a binary column split 50/50. 50% true, 50% false. The numbers are a bit less consistent, but generally around 0.16 for the indexed version and 0.24 for the unindexed version. <em>Go indexes!</em>
-</p>
+```
+
+As you hopefully know: *“Using index”* good, *“Using where”* bad.
+
+**TL;DR A boolean column consisting of 10% TRUE and 90% FALSE queried for TRUE values using an index takes 0.04 sec, while not using an index takes 0.24 sec. The index speeds up the query by about a factor of six.**
+
+I’ve repeated the test with worse case scenario of a binary column split 50/50. 50% true, 50% false. The numbers are a bit less consistent, but generally around 0.16 for the indexed version and 0.24 for the unindexed version. *Go indexes!*
