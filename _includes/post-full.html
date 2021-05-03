@@ -32,7 +32,7 @@
       {% assign thoughts = "No thoughts" %}
     {% endif %}
 
-    <div class="thoughts">{{ thoughts }} on &ldquo;{{ post.title }}&rdquo;</div>
+    <h3>{{ thoughts }} on &ldquo;{{ post.title }}&rdquo;</h3>
     {%- for comment in post.comments -%}
       <div class="comment">
         <p>
@@ -48,7 +48,7 @@
         <p>{{ comment.content | markdownify }}</p>
       </div>
     {%- endfor -%}
-    <p><strong><a href="https://github.com/tasuki/blog/edit/master/{{ post.path }}">Add your comment</a></strong>
+    <p><a class="add-comment" href="https://github.com/tasuki/blog/edit/master/{{ post.path }}">Add your comment</a>
        &mdash; <a href="/comment/">How does this work?</a></p>
   </div>
   {% endif %}
