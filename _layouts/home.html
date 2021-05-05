@@ -9,7 +9,7 @@ layout: default
 {%- endfor -%}
 
 <div id="pagination" class="pure-g">
-  <div class="older pure-u-md-1-3">
+  <div class="older pure-u-1-1 pure-u-sm-1-3">
   {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path }}">&laquo; Older posts</a>
   {% else %}
@@ -17,11 +17,11 @@ layout: default
   {% endif %}
   </div>
 
-  <div class="page-number pure-u-md-1-3">
+  <div class="page-number pure-u-1-1 pure-u-sm-1-3">
     Page: {{ paginator.page }} of {{ paginator.total_pages }}
   </div>
 
-  <div class="newer pure-u-md-1-3">
+  <div class="newer pure-u-1-1 pure-u-sm-1-3">
   {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path }}">Newer posts &raquo;</a>
   {% else %}
