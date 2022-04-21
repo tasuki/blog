@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Elm and Uncaught RangeError"
+title: "Elm and Maximum call stack size exceeded"
 ---
 
 A-ha, this will be an easy blog post!
