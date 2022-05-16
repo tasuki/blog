@@ -12,7 +12,7 @@ Set contents of <code>/etc/systemd/resolved.conf</code> to:
 DNS=45.90.28.239 45.90.30.239
 Domains=~.</pre>
 <p>
-Apparently spaces are separators. Those are NextDNS servers in the example btw. NextDNS has not sponsored this post.
+Apparently spaces are separators. Those are <a href="https://nextdns.io/">NextDNS</a> servers in the example btw. NextDNS has not sponsored this post.
 </p>
 <p>
 Then run: <code>$ sudo service systemd-resolved restart</code>
@@ -27,6 +27,9 @@ And in case you want to <a href="https://github.com/systemd/systemd/issues/2514#
 <ul>
 <li>
 <code>apt install dnsmasq resolvconf</code>
+</li>
+<li>
+Set <code>/etc/dnsmasq.conf</code> config, eg values from <a href="https://my.nextdns.io/">my.nextdns.io</a>
 </li>
 <li>
 <a href="https://askubuntu.com/a/899338">Disable <code>systemd-resolved</code></a>
