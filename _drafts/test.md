@@ -22,6 +22,8 @@ Que?
 
 > A funny quote... it should probably wrap? how's it wrap? 's it wrap good? real good?
 
+---
+
 And I know not what else perhaps some code `perhaps some code`?
 
     $ indented code
@@ -67,3 +69,9 @@ Even moar text? And a table:
 | Bread   | 10       | 1     |
 | Avocado | 100      | 123   |
 | Caviar  | 1        | 1000  |
+
+And some[^some] references.[^ref]
+
+[^some]: This is the first reference.
+
+[^ref]: This is the second reference.

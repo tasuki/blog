@@ -16,7 +16,7 @@ $desk-factor: 1.125 // larger fonts on desktop size
 $size-base: 16px
 $size-smaller: $size-base * 0.8
 $size-small: $size-base * 0.9
-$size-large: $size-base * 1.5
+$size-large: $size-base * 1.35
 $size-larger: $size-base * 1.5 * 1.5
 $size-largest: $size-base * 1.5 * 1.5 * 1.5
 
@@ -121,8 +121,16 @@ body
     margin: 15px
     padding-left: 15px
 
+  hr
+    border: 0;
+    border-top: 1px solid #AAA;
+
   img, embed, iframe, object, video
     max-width: 100%
+
+  .footnotes
+    border-top: 1px solid #CCC;
+    color: #666;
 
   .post-nav
     font-style: italic
