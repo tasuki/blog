@@ -11,7 +11,3 @@ bundle install --path vendor/bundle
 ## Run
 
 See the `Makefile`!
-
-## Deploy
-
-Can't build by pushing to the server... because of... reasons, see the `Makefile`!
