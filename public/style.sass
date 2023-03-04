@@ -5,11 +5,11 @@ $font-headers: "Eczar", serif
 $font-body: "IBM Plex Sans", sans-serif
 $font-mono: "IBM Plex Mono"
 
-$color-primary: #CA3C08
+$color-primary: #C60
 $color-background: #FFF
-$color-text: #141412
+$color-text: #210
+$color-lessimportant: #2105
 $color-code: #FDF6E3
-$color-gentle: #EDEAE6
 
 $desk-factor: 10/9 // larger fonts on desktop size
 
@@ -111,28 +111,28 @@ body
     font-size: $size-smaller
     margin: auto
   tr
-    border-bottom: 1px solid $color-gentle
+    border-bottom: 1px solid $color-lessimportant
   th
     text-align: left
   th, td
     padding: 5px 10px
 
   blockquote
-    border-left: 7px solid $color-gentle
+    border-left: 5px dotted $color-lessimportant
     margin: 15px
     margin-left: 0px
     padding-left: 15px
 
   hr
     border: 0;
-    border-top: 1px solid #AAA;
+    border-top: 2px dotted $color-lessimportant;
 
   img, embed, iframe, object, video
     max-width: 100%
 
   .footnotes
-    border-top: 1px solid #CCC;
-    color: #666;
+    border-top: 1px solid $color-lessimportant;
+    color: $color-lessimportant;
 
   .post-nav
     font-style: italic

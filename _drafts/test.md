@@ -22,6 +22,8 @@ Que?
 
 > A funny quote... it should probably wrap? how's it wrap? 's it wrap good? real good?
 
+A paragraph to separate the quote from the separator.
+
 ---
 
 And I know not what else perhaps some code `perhaps some code`?
