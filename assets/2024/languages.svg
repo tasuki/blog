@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="275mm" height="210mm" version="1.1" viewBox="0 0 275 210" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <marker id="Arrow1Lend" overflow="visible" orient="auto">
+   <path transform="matrix(-.8 0 0 -.8 -10 0)" d="m0 0 5-5-17.5 5 17.5 5z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="Arrow1Lend-3" overflow="visible" orient="auto">
+   <path transform="matrix(-.8 0 0 -.8 -10 0)" d="m0 0 5-5-17.5 5 17.5 5z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+ </defs>
+ <path d="m21.5 191h251" fill="none" marker-end="url(#Arrow1Lend)" stroke="#000" stroke-width=".582"/>
+ <path d="m23.8 193v-170" fill="none" marker-end="url(#Arrow1Lend-3)" stroke="#000" stroke-width=".511"/>
+ <g font-family="'IBM Plex Sans'">
+  <g font-size="11.3px" stroke-width=".283">
+   <text x="92.647644" y="206.86034" style="line-height:1.25" xml:space="preserve"><tspan x="92.647644" y="206.86034" font-family="'IBM Plex Sans'" stroke-width=".283">Language niceness</tspan></text>
+   <text x="33.377213" y="9.6344118" style="line-height:1.25" xml:space="preserve"><tspan x="33.377213" y="9.6344118" font-family="'IBM Plex Sans'" stroke-width=".283">Objective ranking of programming languages</tspan></text>
+   <text transform="rotate(-90)" x="-191.33473" y="9.1932497" style="line-height:1.25" xml:space="preserve"><tspan x="-191.33473" y="9.1932497" font-family="'IBM Plex Sans'" stroke-width=".283">Ecosystem + general ergonomics</tspan></text>
+   <text x="85.654625" y="47.330475" style="line-height:1.25" xml:space="preserve"><tspan x="85.654625" y="47.330475" font-family="'IBM Plex Sans'" stroke-width=".283">Python</tspan></text>
+   <text x="232.80193" y="181.35039" style="line-height:1.25" xml:space="preserve"><tspan x="232.80193" y="181.35039" font-family="'IBM Plex Sans'" stroke-width=".283">Idris</tspan></text>
+   <text x="40.107967" y="39.888248" style="line-height:1.25" xml:space="preserve"><tspan x="40.107967" y="39.888248" font-family="'IBM Plex Sans'" stroke-width=".283">PHP</tspan></text>
+  </g>
+  <g stroke-width=".283">
+   <text x="40.802979" y="23.770252" fill="#000000" font-size="5.66px" style="line-height:1.25" xml:space="preserve"><tspan x="40.802979" y="23.770252">PHP ergonomics bump:</tspan><tspan x="40.802979" y="30.848001" dy="-1.2285935">just upload files to server</tspan></text>
+   <text x="185.79185" y="97.813362" font-size="11.3px" style="line-height:1.25" xml:space="preserve"><tspan x="185.79185" y="97.813362" font-family="'IBM Plex Sans'" stroke-width=".283">F#</tspan></text>
+   <text x="161.91859" y="79.387993" font-size="11.3px" style="line-height:1.25" xml:space="preserve"><tspan x="161.91859" y="79.387993" font-family="'IBM Plex Sans'" stroke-width=".283">Scala</tspan></text>
+  </g>
+  <text x="66.15432" y="78.51088" font-size="10.6px" stroke-width=".265" style="line-height:1.25" xml:space="preserve"><tspan x="66.15432" y="78.51088" font-family="'IBM Plex Sans'" stroke-width=".265"/></text>
+  <g font-size="11.3px" stroke-width=".283">
+   <text x="181.34555" y="120.78384" style="line-height:1.25" xml:space="preserve"><tspan x="181.34555" y="120.78384" font-family="'IBM Plex Sans'" stroke-width=".283">Haskell</tspan></text>
+   <text x="217.67532" y="64.681282" style="line-height:1.25" xml:space="preserve"><tspan x="217.67532" y="64.681282" font-family="'IBM Plex Sans'" stroke-width=".283">Elm</tspan></text>
+   <text x="72.105087" y="62.105675" style="line-height:1.25" xml:space="preserve"><tspan x="72.105087" y="62.105675" font-family="'IBM Plex Sans'" stroke-width=".283">Go</tspan></text>
+   <text x="43.534859" y="75.904037" style="line-height:1.25" xml:space="preserve"><tspan x="43.534859" y="75.904037" font-family="'IBM Plex Sans'" stroke-width=".283">Java</tspan></text>
+  </g>
+  <g font-size="5.66px" stroke-width=".283">
+   <text x="182.27023" y="127.05512" fill="#000000" style="line-height:1.25" xml:space="preserve"><tspan x="182.27023" y="127.05512">Haskell ergonomics bump:</tspan><tspan x="182.27023" y="134.13287" dy="-1.2285935">stack is in my distro's repos</tspan></text>
+   <text x="181.98814" y="155.61813" style="line-height:1.25" xml:space="preserve"><tspan x="181.98814" y="155.61813" fill="#000000" font-family="'IBM Plex Sans'" font-size="5.66px" stroke-width=".283">PureScript has a package manager!</tspan></text>
+   <text x="197.32498" y="48.385735" fill="#000000" style="line-height:1.25" xml:space="preserve"><tspan x="197.32498" y="48.385735">Elm not so much ecosystem</tspan><tspan x="197.32498" y="55.463486" dy="-1.2285935">but amazing ergonomics</tspan></text>
+  </g>
+ </g>
+ <text x="217.65958" y="149.85313" font-size="11.3px" stroke-width=".283" style="line-height:1.25" xml:space="preserve"><tspan x="217.65958" y="149.85313" font-family="'IBM Plex Sans'" stroke-width=".283">PureScript</tspan></text>
+</svg>
