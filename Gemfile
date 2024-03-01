@@ -7,4 +7,5 @@ group :jekyll_plugins do
   gem "jekyll-feed"
 end
 
-gem "webrick", "~> 1.8"
+gem "sassc", "~> 2.1.0" # newer sassc is very slow to install
+gem "webrick", "~> 1.8" # ruby 3 comes without webrick :shrug:

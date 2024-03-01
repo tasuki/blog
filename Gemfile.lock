@@ -54,7 +54,7 @@ GEM
     rexml (3.2.6)
     rouge (3.30.0)
     safe_yaml (1.0.5)
-    sassc (2.4.0)
+    sassc (2.1.0)
       ffi (~> 1.9)
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
@@ -68,6 +68,7 @@ DEPENDENCIES
   jekyll (= 4.2.2)
   jekyll-feed
   jekyll-paginate
+  sassc (~> 2.1.0)
   webrick (~> 1.8)
 
 BUNDLED WITH
