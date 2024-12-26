@@ -1,6 +1,6 @@
 # tasuki's blog, updated for the twenties
 
-It works with `ruby 2.7` and `bundler 2.1.4` on Ubuntu 20.04.
+It works with `ruby 3.1` and `bundler 2.5.6` on Debian 12 bookworm.
 
 ## Install
 

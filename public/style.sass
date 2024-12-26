@@ -13,7 +13,7 @@ $color-text: #210
 $color-lessimportant: #2105
 $color-code: #FDF6E3
 
-$desk-factor: 10/9 // larger fonts on desktop size
+$desk-factor: 1.1 // larger fonts on desktop size
 
 $size-base: 18px
 $size-smaller: $size-base * 0.8
@@ -126,15 +126,21 @@ body
     padding-left: 15px
 
   hr
-    border: 0;
-    border-top: 2px dotted $color-lessimportant;
+    border: 0
+    border-top: 2px dotted $color-lessimportant
 
   img, embed, iframe, object, video
     max-width: 100%
 
+  summary
+    cursor: pointer
+
+  .nowrap
+    white-space: nowrap
+
   .footnotes
-    border-top: 1px solid $color-lessimportant;
-    color: $color-lessimportant;
+    border-top: 1px solid $color-lessimportant
+    color: $color-lessimportant
 
   .post-nav
     font-style: italic
