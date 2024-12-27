@@ -425,3 +425,5 @@ Here's a bit of a cheat-sheet for the episodes, listing the enemies and goodies 
 </details>
 
 For your (in?)convenience, I ordered the episodes by difficulty (from easiest to hardest) rather than alphabetically.
+
+[Edit:] I managed to find [more episodes](https://github.com/tasuki/ultimate-tk-levels) on archive.org! Some of them might suck or crash the game, I don't have the time to check.
