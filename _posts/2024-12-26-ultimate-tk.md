@@ -427,3 +427,8 @@ Here's a bit of a cheat-sheet for the episodes, listing the enemies and goodies 
 For your (in?)convenience, I ordered the episodes by difficulty (from easiest to hardest) rather than alphabetically.
 
 [Edit:] I managed to find [more episodes](https://github.com/tasuki/ultimate-tk-levels) on archive.org! Some of them might suck or crash the game, I don't have the time to check.
+
+[Edit 2:] I [created a fork](https://github.com/tasuki/ultimate-tk). It includes the following changes:
+
+- Faster fade-in/out for less wait time.
+- Larger (and easily configurable) in-game viewport, so you can see more around you!
