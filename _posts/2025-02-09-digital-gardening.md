@@ -16,7 +16,7 @@ During the past few years I've gone through some effort to keep my digital life 
 Here's my tsumego collections favicon, followed by its source:
 
 <p style="text-align:center;">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" width="50%" height="auto">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" width="50%">
 <defs>
 <filter id="blur">
 	<feGaussianBlur in="SourceGraphic" stdDeviation="0.1"/>
