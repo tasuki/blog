@@ -5,7 +5,7 @@
 
 $font-headers: "Eczar", serif
 $font-body: "IBM Plex Sans", sans-serif
-$font-mono: "IBM Plex Mono"
+$font-mono: "IBM Plex Mono", monospace
 
 $color-primary: #C60
 $color-background: #FFF
@@ -62,8 +62,10 @@ body
     line-height: .8
 
   .date
-    font-style: italic
+    color: $color-lessimportant
     font-size: $size-smaller
+    font-weight: bold
+
 
   h1, h3
     font-family: $font-headers
@@ -207,6 +209,13 @@ body
     padding: 0 200px
 
   #content
+    .meta
+      margin-left: -140px
+      margin-top: -28px
+
+    .date
+      font-size: $desk-factor * $size-base
+
     .post-nav
       margin-left: -100px
       margin-right: -100px
