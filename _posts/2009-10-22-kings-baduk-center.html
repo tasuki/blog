@@ -28,25 +28,11 @@ comments:
   date_gmt: '2010-02-18 14:32:54 +0000'
   content: Awesome game! was really interesting to watch! thank you.
 ---
+<script type="text/javascript" src="/public/wgo/wgo.min.js"></script>
+<script type="text/javascript" src="/public/wgo/wgo.player.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/public/wgo/wgo.player.css" />
+
 <p>
-<script type="text/javascript"><br />
-eidogoConfig = {<br />
-theme:          "compact", // "standard" or "compact"<br />
-mode:           "play", // "play" or "view"<br />
-showComments:    true,<br />
-showPlayerInfo:  false,<br />
-showGameInfo:    false,<br />
-showTools:       false,<br />
-showOptions:     false,<br />
-showNavTree:     false,<br />
-markCurrent:     true,<br />
-markVariations:  true,<br />
-markNext:        false,<br />
-problemMode:     false,<br />
-enableShortcuts: true<br />
-};<br />
-</script>
-<script type="text/javascript" src="http://eidogo.com/player/js/all.compressed.js"></script>
 Lately I’ve been spending my time at <a href="http://senseis.xmp.net/?KingsBadukCenter">King’s Baduk Center</a>. I study go (it is called baduk in Korean).
 </p>
 <p>
@@ -58,30 +44,8 @@ At 8:00 we have breakfast. It usually includes toasts, meat, eggs and jam, which
 <p>
 Morning is devoted to solving problems. I’ve taken a few problems from our collections and put them here for your enjoyment:
 </p>
-<div id="problem-container">
-
-</div>
 <p>
-<script type="text/javascript"><br />
-var player = new eidogo.Player({<br />
-container: "problem-container",<br />
-theme: "compact",<br />
-sgfUrl: "/assets/2009/kbc-sgf/problems.sgf",<br />
-loadPath: [0, 1],<br />
-mode: "view",<br />
-showComments: false,<br />
-showPlayerInfo: false,<br />
-showGameInfo: false,<br />
-showTools: false,<br />
-showOptions: false,<br />
-showNavTree: true,<br />
-markCurrent: false,<br />
-markVariations: false,<br />
-markNext: false,<br />
-enableShortcuts: false,<br />
-problemMode: true<br />
-});<br />
-</script>
+<div data-wgo="/assets/2009/kbc-sgf/problems.sgf"></div>
 </p>
 <p>
 You can click those 1’s to see the problems. No solutions are provided because life is tough (we also have no solutions, but our teachers sometimes look at our books and draw stars next to problems with wrong solution, needless to say, our books are full of stars).
@@ -93,7 +57,7 @@ Lately we have tests at 10. It starts with a joseki test (we learn one chapter f
 At noon there’s lunch (rice, why are you asking?), and at 1pm we start our league games. I’ve uploaded a few league games that I’ve recorded. Please note that these were played with the time limits of 30 minutes main time plus 3 times 30 seconds byoyomi (which is pretty tough, in my opinion).
 </p>
 <p>
-Right after I came to KBC, I <a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-08-27-him-vit.sgf">lost the biggest group I’ve ever lost in what had been a comfortable game</a> until move 87 in which I forgot to protect my corner. One of my next games against Mateusz was a rather <a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-09-07-vit-mateusz.sgf">interesting fight of influence against territory</a>, but instead of an easy kill (move 110 push down from two stones), I let Mati live and died myself. Then a <a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-09-10-vit-tunga.sgf">funny game against Tunga</a>, which I won by an accident.
+Right after I came to KBC, I <a href="http://blog.tasuki.org/assets/2009/kbc-sgf/2009-08-27-him-vit.sgf">lost the biggest group I’ve ever lost in what had been a comfortable game</a> until move 87 in which I forgot to protect my corner. One of my next games against Mateusz was a rather <a href="http://blog.tasuki.org/assets/2009/kbc-sgf/2009-09-07-vit-mateusz.sgf">interesting fight of influence against territory</a>, but instead of an easy kill (move 110 push down from two stones), I let Mati live and died myself. Then a <a href="http://blog.tasuki.org/assets/2009/kbc-sgf/2009-09-10-vit-tunga.sgf">funny game against Tunga</a>, which I won by an accident.
 </p>
 <p>
 Here’s a game against Pierre that we played right after he came to KBC:
@@ -101,45 +65,34 @@ Here’s a game against Pierre that we played right after he came to KBC:
 <p>
 <em>(you can use arrow keys on your keyboard to move around the game)</em>
 </p>
-<div class="eidogo-player-auto" data-sgf="/assets/2009/kbc-sgf/2009-09-15-vit-pierre.sgf">
-
-</div>
+<div data-wgo="/assets/2009/kbc-sgf/2009-09-15-vit-pierre.sgf"></div>
 <p>
 I had a bad start, which changed to amazing game after his 32, which gave me plenty of points in return for nothing. The game proceeded well until I got to byoyomi (move 83), where it quickly went downhill as I lost my cutting stones, but Pierre unexpectedly decided to die with his huge corner, which suddenly ended the game.
 </p>
 <p>
-About a week later I played against Him, and after his overplay at move 56, I managed to <a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-09-22-vit-him.sgf">keep an edge in the fight and ultimately killed his group</a>. In a game against Ben I <a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-09-26-vit-ben.sgf">forgot to create territory but got a lucky win</a> after he overplayed and died. The I got<a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-09-26-vit-seolki.sgf">beaten by Seolki</a> in a 3-handicap.
+About a week later I played against Him, and after his overplay at move 56, I managed to <a href="http://blog.tasuki.org/assets/2009/kbc-sgf/2009-09-22-vit-him.sgf">keep an edge in the fight and ultimately killed his group</a>. In a game against Ben I <a href="http://blog.tasuki.org/assets/2009/kbc-sgf/2009-09-26-vit-ben.sgf">forgot to create territory but got a lucky win</a> after he overplayed and died. The I got<a href="http://blog.tasuki.org/assets/2009/kbc-sgf/2009-09-26-vit-seolki.sgf">beaten by Seolki</a> in a 3-handicap.
 </p>
 <p>
 I had a promising game against Him after he forgot to secure his corner, but I died</a> because of utter lack of global insight at one point (move 83, also at 63 we both missed a simple geta :-|). You can see the game here:
 </p>
-<div class="eidogo-player-auto" data-sgf="/assets/2009/kbc-sgf/2009-09-29-him-vit.sgf">
-
-</div>
+<div data-wgo="/assets/2009/kbc-sgf/2009-09-29-him-vit.sgf"></div>
 <p>
-You can also see <a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-06-seolki-vit.sgf">Seolki’s one man show</a> – I started a fight which was bad in the first place and then played it wrong. Tungalag Tunga is <a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-08-vit-tunga.sgf">direct descendant of Genghis Khan and so she tries to kill everything</a> (but fails). Oooops, Pierre <a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-09-vit-pierre.sgf">forgot to connect his stones</a> (but he would have lost anyway).
+You can also see <a href="http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-06-seolki-vit.sgf">Seolki’s one man show</a> – I started a fight which was bad in the first place and then played it wrong. Tungalag Tunga is <a href="http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-08-vit-tunga.sgf">direct descendant of Genghis Khan and so she tries to kill everything</a> (but fails). Oooops, Pierre <a href="http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-09-vit-pierre.sgf">forgot to connect his stones</a> (but he would have lost anyway).
 </p>
 <p>
-Next is a typical Mateusz game, which went very good for me <a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-13-mateusz-vit.sgf">until I started a completely unreasonable fight when I didn’t need it</a>. Luckily, Mateusz blundered few times and let me win. <a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-14-vit-him.sgf">Several failed attacks</a> cost me the next game against Him. Some of the higher handicaps can also <a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-15-vit-scott.sgf">get pretty rough</a> (though I usually win those).
+Next is a typical Mateusz game, which went very good for me <a href="http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-13-mateusz-vit.sgf">until I started a completely unreasonable fight when I didn’t need it</a>. Luckily, Mateusz blundered few times and let me win. <a href="http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-14-vit-him.sgf">Several failed attacks</a> cost me the next game against Him. Some of the higher handicaps can also <a href="http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-15-vit-scott.sgf">get pretty rough</a> (though I usually win those).
 </p>
 <p>
 I had a very interesting game against Pierre today:
 </p>
-<div class="eidogo-player-auto" data-sgf="/assets/2009/kbc-sgf/2009-10-22-vit-pierre.sgf">
-
-</div>
+<div data-wgo="/assets/2009/kbc-sgf/2009-10-22-vit-pierre.sgf"></div>
 <p>
 The start was better for him, then he ataried 68 without hesitation (“my teacher told me not to think about that”), and we made an interesting exchange. In my opinion, it would have been about even had he killed the corner. I made a bad trade while escaping with my group (move 97) but more than made up for it when I surprised Pierre with easy life of my supposedly dead corner.
 </p>
 <p>
 The last game is perhaps more interesting than any of the ones before, as it contains commentary by KBC teacher, Kim sabomnim.
 </p>
-<div class="eidogo-player-auto" data-sgf="/assets/2009/kbc-sgf/2009-10-22-him-vit.sgf">
-
-</div>
-<p>
-(it might be more comfortable to <a href="http://eidogo.com/#url:http://blog.tasuki.org/assets/2009/kbc-sgf/2009-10-22-him-vit.sgf">view the game with fullsize interface on eidogo.com</a>)
-</p>
+<div data-wgo="/assets/2009/kbc-sgf/2009-10-22-him-vit.sgf"></div>
 <p>
 If you look at the commentary carefully, you will be rewarded. There is one standard situation which happens very often and is played wrong by any European between 5kyu and 7dan (players worse than 5kyu don’t know the trick, and those better than 7dan know that the trick in fact isn’t that good).
 </p>
@@ -153,5 +106,5 @@ I’m being kicked out of here so I don’t even have the time to read it after 
 <em>PS: It is pure coincidence that of the four games displayed here, two are against Pierre and I won both, and the other two are against Him and I lost both. In fact, I lose to Pierre quite often, and I certainly beat Him more often than never. 8-)</em>
 </p>
 <p>
-<em>PPS: Brought to you by EidoGo. <a href="http://eidogo.com/"><strong>EidoGo</strong></a> rocks. Takes a minute to set up and works like a charm.</em>
+<del><em>PPS: Brought to you by EidoGo. <a href="http://eidogo.com/"><strong>EidoGo</strong></a> rocks. Takes a minute to set up and works like a charm.</em></del> Hello from 2025! EidoGo is gone! Long live <a href="https://wgo.waltheri.net/">WGo</a>! Thank you Omi!
 </p>
