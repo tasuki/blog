@@ -3,9 +3,9 @@
 
 @import public/fonts
 
-$font-headers: "Eczar", serif
-$font-body: "IBM Plex Sans", sans-serif
-$font-mono: "IBM Plex Mono", monospace
+$font-headers: "Recursive", sans-serif
+$font-body: "Recursive", sans-serif
+$font-mono: "Recursive", monospace
 
 $color-primary: #C60
 $color-background: #FFF
@@ -15,7 +15,7 @@ $color-code: #FDF6E3
 
 $desk-factor: 1.1 // larger fonts on desktop size
 
-$size-base: 18px
+$size-base: 16px
 $size-smaller: $size-base * 0.8
 $size-small: $size-base * 0.9
 $size-large: $size-base * 1.35
@@ -30,6 +30,9 @@ html, button, input, select, textarea, .pure-g [class *= "pure-u"]
 body
   color: $color-text
 
+em
+  font-variation-settings: "slnt" -15
+
 .pad
   margin: auto
   max-width: 600px
@@ -38,6 +41,7 @@ body
 #header
   background-color: $color-primary
   font-family: $font-headers
+  font-variation-settings: "CASL" 1
   font-size: $size-largest
   font-weight: 400
   line-height: .7
@@ -69,6 +73,7 @@ body
 
   h1, h3
     font-family: $font-headers
+    font-variation-settings: "CASL" 1
     font-weight: 500
     line-height: 1
   h1
@@ -101,6 +106,7 @@ body
   code, pre
     background-color: $color-code
     font-family: $font-mono
+    font-variation-settings: "MONO" 1
     font-size: $size-smaller
   code
     padding: 0 .3em
