@@ -45,6 +45,8 @@ and one more
 State monad for you to fill in:
 
 ```scala
+// implement a state monad
+
 package fpinscala.mystate
 
 case class State[S,+A](run: S => (A, S)) {

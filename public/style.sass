@@ -2,17 +2,11 @@
 ---
 
 @forward 'fonts'
-@forward 'solarized-light'
+@forward 'solarized'
 
 $font-headers: "Eczar", serif
 $font-body: "IBM Plex Sans", sans-serif
 $font-mono: "IBM Plex Mono", monospace
-
-$color-primary: #C60
-$color-background: #FFF
-$color-text: #210
-$color-lessimportant: #2105
-$color-code: #FDF6E3
 
 $desk-factor: 1.1 // larger fonts on desktop size
 
@@ -23,13 +17,29 @@ $size-large: $size-base * 1.35
 $size-larger: $size-base * 1.5 * 1.5
 $size-largest: $size-base * 1.5 * 1.5 * 1.5
 
+:root
+  --color-primary: #C60;
+  --color-background: #FFF;
+  --color-text: #210;
+  --color-lessimportant: #2105;
+  --color-code: #FDF6E3;
+
+
+@media (prefers-color-scheme: dark)
+  :root
+    --color-primary: #D72;
+    --color-background: #222;
+    --color-text: #FDF6E3;
+    --color-lessimportant: #FFE5;
+    --color-code: #002B36;
 
 html, button, input, select, textarea, .pure-g [class *= "pure-u"]
   font-family: $font-body
   font-size: $size-base
 
 body
-  color: $color-text
+  background: var(--color-background)
+  color: var(--color-text)
 
 .pad
   margin: auto
@@ -37,21 +47,21 @@ body
   padding: 0 10px
 
 #header
-  background-color: $color-primary
+  background-color: var(--color-primary)
   font-family: $font-headers
   font-size: $size-largest
   font-weight: 400
   line-height: .7
   letter-spacing: -2px
   a
-    color: $color-background
+    color: var(--color-background)
     display: block
     padding-top: .3em
     text-decoration: none
-    text-shadow: 1px 1px 1px $color-text
+    text-shadow: 1px 1px 1px var(--color-text)
     &:hover
-      color: $color-text
-      text-shadow: 1px 1px 1px $color-background
+      color: var(--color-text)
+      text-shadow: 1px 1px 1px var(--color-background)
 
 #content
   line-height: 1.5
@@ -65,7 +75,7 @@ body
     line-height: .8
 
   .date
-    color: $color-lessimportant
+    color: var(--color-lessimportant)
     font-size: $size-smaller
     font-weight: bold
 
@@ -81,15 +91,15 @@ body
     font-size: $size-larger * 0.9
     margin: .5em 0 0 0
     a
-      color: $color-text
+      color: var(--color-text)
       &:hover
-        color: $color-primary
+        color: var(--color-primary)
   h3
     font-size: $size-large
     margin: 1.5em 0 0 0
 
   a
-    color: $color-primary
+    color: var(--color-primary)
     text-decoration: none
     &:hover
       text-decoration: underline
@@ -103,7 +113,7 @@ body
       margin: 0
 
   code, pre
-    background-color: $color-code
+    background-color: var(--color-code)
     font-family: $font-mono
     font-size: $size-smaller
   code
@@ -119,21 +129,21 @@ body
     font-size: $size-smaller
     margin: auto
   tr
-    border-bottom: 1px solid $color-lessimportant
+    border-bottom: 1px solid var(--color-lessimportant)
   th
     text-align: left
   th, td
     padding: 5px 10px
 
   blockquote
-    border-left: 5px dotted $color-lessimportant
+    border-left: 5px dotted var(--color-lessimportant)
     margin: 15px
     margin-left: 0px
     padding-left: 15px
 
   hr
     border: 0
-    border-top: 2px dotted $color-lessimportant
+    border-top: 2px dotted var(--color-lessimportant)
 
   img, embed, iframe, object, video
     max-width: 100%
@@ -145,8 +155,8 @@ body
     white-space: nowrap
 
   .footnotes
-    border-top: 1px solid $color-lessimportant
-    color: $color-lessimportant
+    border-top: 1px solid var(--color-lessimportant)
+    color: var(--color-lessimportant)
 
   .post-nav
     font-style: italic
