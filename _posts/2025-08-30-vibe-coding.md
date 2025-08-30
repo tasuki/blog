@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Vibe coding
+title: Vibe coding two layer go
 ---
 
-This is it, vibe coding is upon us!
+This is it, the year is 2025 and vibe coding is upon us!
 
 I've been using LLMs for programming for some time: they help me choose the right high level architecture, and they implement well-defined self-contained functions for me. I don't trust an LLM to make changes to my code on its own.
 
