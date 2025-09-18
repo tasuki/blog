@@ -65,6 +65,8 @@ void main() {
 }
 `
 
+const heightFactor = 1/3;
+
 function compileShader(gl, source, type) {
   const shader = gl.createShader(type);
   gl.shaderSource(shader, source);
@@ -105,15 +107,26 @@ function draw(canvas, fsSource) {
   gl.drawArrays(gl.TRIANGLES, 0, 6);
 }
 
+function setCanvasSize(canvas) {
+  const width = canvas.parentElement.clientWidth;
+  const height = canvas.parentElement.clientWidth * heightFactor;
+
+  canvas.style.width = width + 'px';
+  canvas.style.height = height + 'px';
+
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  canvas.width = width * devicePixelRatio;
+  canvas.height = height * devicePixelRatio;
+}
+
 function addCanvasesById(id) {
   document.querySelectorAll(`#${id} pre`).forEach(pre => {
-    const p = document.createElement("p");
     const canvas = document.createElement("canvas");
+    const p = document.createElement("p");
     p.appendChild(canvas);
     pre.parentNode.parentNode.insertBefore(p, pre.parentNode.nextSibling);
+    setCanvasSize(canvas);
 
-    canvas.width = canvas.parentElement.clientWidth;
-    canvas.height = canvas.parentElement.clientWidth / 2;
     fsSource = `#version 300 es
       precision mediump float;
 
