@@ -4,8 +4,8 @@
 @forward 'fonts'
 @forward 'solarized'
 
-$font-headers: "Eczar", serif
-$font-body: "IBM Plex Sans", sans-serif
+$font-headers: "Alegreya", serif
+$font-body: "Alegreya", serif
 $font-mono: "IBM Plex Mono", monospace
 
 $desk-factor: 1.1 // larger fonts on desktop size
@@ -21,7 +21,7 @@ $size-largest: $size-base * 1.5 * 1.5 * 1.5
   --color-primary: #C60;
   --color-background: #FFF;
   --color-text: #210;
-  --color-lessimportant: #2105;
+  --color-lessimportant: #2106;
   --color-code: #FDF6E3;
 
 
@@ -30,7 +30,7 @@ $size-largest: $size-base * 1.5 * 1.5 * 1.5
     --color-primary: #F80;
     --color-background: #222;
     --color-text: #FDF6E3;
-    --color-lessimportant: #FFE5;
+    --color-lessimportant: #FFE6;
     --color-code: #002B36;
 
 html, button, input, select, textarea, .pure-g [class *= "pure-u"]
@@ -50,13 +50,14 @@ body
   background-color: var(--color-primary)
   font-family: $font-headers
   font-size: $size-largest
+  font-style: italic
   font-weight: 400
   line-height: .7
   letter-spacing: -2px
   a
     color: var(--color-background)
     display: block
-    padding-top: .3em
+    padding-top: 10px
     text-decoration: none
     text-shadow: 1px 1px 1px var(--color-text)
     &:hover
@@ -76,13 +77,11 @@ body
 
   .date
     color: var(--color-lessimportant)
-    font-size: $size-smaller
-    font-weight: bold
-
+    font-size: $size-base
 
   h1, h3
     font-family: $font-headers
-    font-weight: 500
+    font-weight: bold
     line-height: 1
     text-wrap: balance
   h1
@@ -127,6 +126,7 @@ body
 
   table
     font-size: $size-smaller
+    font-variant-numeric: tabular-nums;
     margin: auto
   tr
     border-bottom: 1px solid var(--color-lessimportant)
@@ -200,7 +200,7 @@ body
 
   #content
     .date
-      font-size: $desk-factor * $size-smaller
+      font-size: $desk-factor * $size-base
     h1
       font-size: $desk-factor * $size-larger
     h3
@@ -224,11 +224,11 @@ body
 
   #content
     .meta
-      margin-left: -140px
+      margin-left: -145px
       margin-top: -28px
 
     .date
-      font-size: $desk-factor * $size-base
+      font-size: $desk-factor * $size-large
 
     .post-nav
       margin-left: -100px
