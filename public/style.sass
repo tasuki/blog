@@ -8,14 +8,12 @@ $font-headers: "Alegreya", serif
 $font-body: "Alegreya", serif
 $font-mono: "IBM Plex Mono", monospace
 
-$desk-factor: 1.1 // larger fonts on desktop size
-
+$desk-factor: 1.2
+$size-code: 15px
 $size-base: 18px
-$size-smaller: $size-base * 0.8
-$size-small: $size-base * 0.9
-$size-large: $size-base * 1.35
-$size-larger: $size-base * 1.5 * 1.5
-$size-largest: $size-base * 1.5 * 1.5 * 1.5
+$size-large: 24px
+$size-larger: 32px
+$size-largest: 56.8px * 1.2 // because lower case
 
 :root
   --color-primary: #C60;
@@ -77,7 +75,6 @@ body
 
   .date
     color: var(--color-lessimportant)
-    font-size: $size-base
 
   h1, h3
     font-family: $font-headers
@@ -85,9 +82,7 @@ body
     line-height: 1
     text-wrap: balance
   h1
-    // nudge down because header is lower-case and
-    // can't be nudged up because of small screen
-    font-size: $size-larger * 0.9
+    font-size: $size-larger
     margin: .5em 0 0 0
     a
       color: var(--color-text)
@@ -116,7 +111,7 @@ body
   code, pre
     background-color: var(--color-code)
     font-family: $font-mono
-    font-size: $size-smaller
+    font-size: $size-code
   code
     padding: 0 .3em
   pre
@@ -127,7 +122,6 @@ body
     padding: 0
 
   table
-    font-size: $size-smaller
     font-variant-numeric: tabular-nums;
     margin: auto
   tr
@@ -191,27 +185,21 @@ body
 
 @media screen and (min-width: 35.5em)
   html
-    font-size: $desk-factor * $size-base
+    font-size: $size-base * $desk-factor
 
   .pad
     padding: 0 50px
 
   #header
-    // nudge up because all lower-case
-    font-size: $desk-factor * $size-largest * 1.2
+    font-size: $size-largest * $desk-factor
 
   #content
-    .date
-      font-size: $desk-factor * $size-base
     h1
-      font-size: $desk-factor * $size-larger
+      font-size: $size-larger * $desk-factor
     h3
-      font-size: $desk-factor * $size-large
+      font-size: $size-large * $desk-factor
     code, pre
-      font-size: $desk-factor * $size-small
-    table
-      font-size: $desk-factor * $size-small
-
+      font-size: $size-code * $desk-factor
     pre, .wide
       margin-left: -40px
       margin-right: -40px
@@ -226,11 +214,8 @@ body
 
   #content
     .meta
-      margin-left: -145px
-      margin-top: -28px
-
-    .date
-      font-size: $desk-factor * $size-large
+      margin-left: -110px
+      margin-top: -22px
 
     .post-nav
       margin-left: -100px

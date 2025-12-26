@@ -3,9 +3,7 @@ layout: post
 title: Just a test but so very long that it definitely wřápš
 ---
 
-# First
-
-## Second
+## No second level headings!
 
 Well *healloez*, this is a **test post**. We have [links](https://tasuki.org/). And dashes - oh we do have dashes -- different ones --- yay!
 
