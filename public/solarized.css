@@ -1,40 +1,40 @@
 /*
-Solar Light/Dark
+Minisolar
 For use with Jekyll and Pygments
 */
 
 :root {
-  --red:     #D24;
+  --red:     #E34;
   --orange:  #C60;
   --yellow:  #A80;
   --green:   #890;
   --cyan:    #2A9;
   --blue:    #28C;
   --violet:  #77D;
-  --magenta: #C39;
+  --magenta: #C4B;
 }
 
 :root {
-  --base03: #fdf6e3;
-  --base02: #eee8d5;
-  --base01: #bec2b6;
-  --base00: #8f9c98;
-  --base0:  #62797a;
-  --base1:  #37565e;
-  --base2:  #073642;
-  --base3:  #002b36;
+  --base03: #FFE;
+  --base02: #EED;
+  --base01: #CCB;
+  --base00: #AA9;
+  --base0:  #577;
+  --base1:  #355;
+  --base2:  #133;
+  --base3:  #022;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --base03: #002b36;
-    --base02: #073642;
-    --base01: #37565e;
-    --base00: #62797a;
-    --base0:  #8f9c98;
-    --base1:  #bec2b6;
-    --base2:  #eee8d5;
-    --base3:  #fdf6e3;
+    --base03: #022;
+    --base02: #133;
+    --base01: #355;
+    --base00: #577;
+    --base0:  #AA9;
+    --base1:  #CCB;
+    --base2:  #EED;
+    --base3:  #FFE;
   }
 }
 
