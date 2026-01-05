@@ -4,19 +4,20 @@ title: Mini Solar
 ---
 
 <style>
-.minisolartile { border: 1px solid #999; float: left; margin: 9px; line-height: 50px; width: 50px; height: 75px; writing-mode: vertical-lr; transform: rotate(180deg); }
+.minisolartile { border: 1px solid #999; float: left; margin: 7px; line-height: 50px; width: 50px; height: 75px; writing-mode: vertical-lr; transform: rotate(180deg); }
 .minisolartile tt { padding: 8px; }
 </style>
 
 > This post is third in a series. I started by [attempting to improve Solarized a little](/solar/), then tried to [make it significantly better by *redoing everything*](/solar-v2/), and in this post I simplify it. 
 
-Ah, I could not stand *wasting* hex digits on the shades of gray! This new set of colours doesn't have the smooth hue transition -- which is impossible to achieve in 4 bits per channel -- but they work fine anyway: the dark ones have OKLCH hue 196 while the light ones have hue 107, so it's basically dual-tone:
+Ah, I could not stand *wasting* hex digits on the shades of gray! This new set of colours doesn't have the smooth hue transition -- which is impossible to achieve in 4 bits per channel -- but they work fine anyway: the dark ones have OKLCH hue 196 while the light ones have hue 107, so it's basically dual-tone, except for the middle one, which suppresses both the red (like the dark colours) and the blue (like the light colours), leading to hue 145.
 
 <div>
 <div class="minisolartile" style="background: #022; color: #AA9;"><tt>#022</tt></div>
 <div class="minisolartile" style="background: #133; color: #CCB;"><tt>#133</tt></div>
 <div class="minisolartile" style="background: #355; color: #EED;"><tt>#355</tt></div>
 <div class="minisolartile" style="background: #577; color: #FFE;"><tt>#577</tt></div>
+<div class="minisolartile" style="background: #898; color: #FFE;"><tt>#898</tt></div>
 <div class="minisolartile" style="background: #AA9; color: #022;"><tt>#AA9</tt></div>
 <div class="minisolartile" style="background: #CCB; color: #133;"><tt>#CCB</tt></div>
 <div class="minisolartile" style="background: #EED; color: #355;"><tt>#EED</tt></div>
@@ -60,10 +61,10 @@ The following are snippets you can paste to [Huetone](https://huetone.ardov.me/)
 , "hues":
   [
     { "name": "light"
-    , "colors": [ "#FFE", "#EED", "#CCB", "#AA9", "#577", "#355", "#133", "#022" ]
+    , "colors": [ "#FFE", "#EED", "#CCB", "#AA9", "#898", "#577", "#355", "#133", "#022" ]
     },
     { "name": "dark"
-    , "colors": [ "#022", "#133", "#355", "#577", "#AA9", "#CCB", "#EED", "#FFE" ]
+    , "colors": [ "#022", "#133", "#355", "#577", "#898", "#AA9", "#CCB", "#EED", "#FFE" ]
     }
   ]
 }
