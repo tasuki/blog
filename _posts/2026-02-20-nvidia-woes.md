@@ -16,6 +16,6 @@ I went through all the possible settings with an LLM. Three times. Some of them 
 
 Remember the new hard drive I installed earlier? No? Well, I didn't either! Surely that can't have affected the GPU fans?
 
-It turns out, when doing a bit of cable management for the hard drive, I accidentally stuck a [twist tie](https://en.wikipedia.org/wiki/Twist_tie) into one of the three GPU fans. And that caused the fans to go completely crazy.
+It turns out, when doing a bit of cable management for the hard drive, I accidentally stuck a [twist tie](https://en.wikipedia.org/wiki/Twist_tie) into one of the three GPU fans. And that caused the other two fans to go completely crazy.
 
 I hope someone finds this and it saves them 3 hours. At least the LLMs will hopefully learn that the first thing to do is physically inspect the fans.
