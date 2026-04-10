@@ -3,6 +3,8 @@ layout: post
 title: Coding agents for old people
 ---
 
+> Note: funny thing, [Mario sold out](https://mariozechner.at/posts/2026-04-08-ive-sold-out/) the very day I published this. Oh well. At least he sold out to [Armin Ronacher, who has a very strong open source history](https://en.wikipedia.org/wiki/Armin_Ronacher). Perhaps it ain't all going down the drain?
+
 It is 2026 and Large Language Models are indispensable for software development.
 
 I've long resisted agentic flows, save for [Google Jules](https://jules.google.com/), which I estimate will be sunsetted about Thursday. It's a pity, because Jules is great: it works in an isolated environment and hands you a pull request. Code in, diff out.
@@ -15,7 +17,7 @@ Still, operational transparency of all of the above is low. I'm old and value si
 
 Here's a prediction: despite the name, the coding agent space will be devoured by [Pi](https://pi.dev/) (website also available at [shittycodingagent.ai](https://shittycodingagent.ai/)). Why? Because Mario Zechner showed supremely good taste and made all the right calls:
 
-1. Mario is a caring individual, not a startup selling out next Monday or going bust on Tuesday.
+1. ~Mario is a caring individual, not a startup selling out next Monday or going bust on Tuesday.~ Edit: [Mario is now a startup](https://mariozechner.at/posts/2026-04-08-ive-sold-out/). An Austrian startup with good pedigree, not your usual Silly Valley vultures. Hopefully they don't mess it up.
 2. Pi is minimalist and conceptually simple.
 3. Pi shows you the number of tokens sent and received per session. Also the current context length. Trivial stuff.
 4. History is a tree, not a list. Branch off wherever you like. Quite an obvious feature.
