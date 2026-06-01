@@ -81,3 +81,19 @@ And some[^some] references.[^ref]
 [^some]: This is the first reference.
 
 [^ref]: This is the second reference.
+
+---
+
+For https://huetone.ardov.me/
+
+```
+{ "name": "blog-colours-test"
+, "hues":
+  [ { "name": "light",     "colors": [ "#ffffff", "#221100", "#cc6600" ] }
+  , { "name": "dark",      "colors": [ "#222222", "#ffeedd", "#ff8800" ] }
+  , { "name": "limelight", "colors": [ "#eeffdd", "#112200", "#779900" ] }
+  , { "name": "limedark",  "colors": [ "#112200", "#eeffdd", "#ccff00" ] }
+  ]
+, "tones": [ "0", "100", "200" ]
+}
+```
